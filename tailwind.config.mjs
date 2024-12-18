@@ -9,6 +9,7 @@ export default {
     extend: {
       colors: {
         primaryButtonColor: "#0071E3",
+        customizeTabBg: "#E8E8ED",
       },
       keyframes: {
         showAnimationKeyFrame: {
@@ -18,6 +19,8 @@ export default {
       },
       animation: {
         showAnimation: "showAnimationKeyFrame .5s ease-in-out .3s forwards",
+        showAnimation1d5s:
+          "showAnimationKeyFrame .5s ease-in-out 1.5s forwards",
       },
     },
   },

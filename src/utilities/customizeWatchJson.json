@@ -1,0 +1,32 @@
+[
+  {
+    "customizeName": "Size",
+    "customizeImageUrl": "/size.svg",
+    "variants": [
+      { "variantName": "42mm", "variantGridList": [{ "gridImageUrl": "" }] },
+      { "variantName": "46mm", "variantGridList": [] }
+    ]
+  },
+  {
+    "customizeName": "Case",
+    "customizeImageUrl": "/case.svg",
+    "variants": [
+      { "variantName": "aluminum", "variantGridList": [] },
+      { "variantName": "titanium", "variantGridList": [] }
+    ]
+  },
+  {
+    "customizeName": "Band",
+    "customizeImageUrl": "/band.svg",
+    "variants": [
+      { "variantName": "Stainless Steel", "variantGridList": [] },
+      { "variantName": "Sport Loop", "variantGridList": [] },
+      { "variantName": "Sport Band", "variantGridList": [] },
+      { "variantName": "FineWoven", "variantGridList": [] },
+      { "variantName": "Braided Solo Loop", "variantGridList": [] },
+      { "variantName": "Solo Loo", "variantGridList": [] },
+      { "variantName": "Nike Sport Loop", "variantGridList": [] },
+      { "variantName": "Nike Sport Band", "variantGridList": [] }
+    ]
+  }
+]
