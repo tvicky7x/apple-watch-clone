@@ -41,7 +41,7 @@ function CollectionDialogBox({
                 }}
                 className={`${currentCollection === item?.id ? "text-collectionActiveColor" : "hover:text-collectionHoverColor"} cursor-pointer text-[17px] leading-[25px] tracking-[-0.37px]`}
               >
-                {item["collectionName"]}
+                {item["variantName"]}
               </p>
               {index !== array.length - 1 && (
                 <div className="my-[17px] h-[1px] bg-collectionDivider" />

@@ -1,7 +1,7 @@
 [
   {
     "id": "appleWatchSeries10",
-    "collectionName": "Apple Watch Series 10",
+    "variantName": "Apple Watch Series 10",
     "defaultCustomize": {
       "currentSize": "46",
       "currentCase": "aluminum",
@@ -9,11 +9,11 @@
       "currentBand": "soloLoop",
       "currentBandVariant": "black"
     },
-    "collectionCustomization": [
+    "variants": [
       {
         "id": "size",
-        "customizeName": "Size",
-        "customizeImageUrl": "/size.svg",
+        "variantName": "Size",
+        "variantImageUrl": "/size.svg",
         "variants": [
           {
             "id": "42",
@@ -25,33 +25,33 @@
       },
       {
         "id": "case",
-        "customizeName": "Case",
-        "customizeImageUrl": "/case.svg",
+        "variantName": "Case",
+        "variantImageUrl": "/case.svg",
         "variants": [
           {
             "id": "aluminum",
-            "variantName": "Aluminum",
-            "variantGridList": [
+            "variantName": "Aluminum Case",
+            "variants": [
               { "id": "jetBlack", "variantName": "Jet Black" },
               { "id": "roseGold", "variantName": "Rose Gold" }
             ]
           },
           {
             "id": "titanium",
-            "variantName": "Titanium",
-            "variantGridList": [{ "id": "gold", "variantName": "Gold" }]
+            "variantName": "Titanium Case",
+            "variants": [{ "id": "gold", "variantName": "Gold" }]
           }
         ]
       },
       {
         "id": "band",
-        "customizeName": "Band",
-        "customizeImageUrl": "/band.svg",
+        "variantName": "Band",
+        "variantImageUrl": "/band.svg",
         "variants": [
           {
             "id": "stainlessSteel",
             "variantName": "Stainless Steel",
-            "variantGridList": [
+            "variants": [
               {
                 "id": "naturalMilaneseLoop",
                 "variantName": "Natural Milanese Loop"
@@ -67,7 +67,7 @@
           {
             "id": "sportLoop",
             "variantName": "Sport Loop",
-            "variantGridList": [
+            "variants": [
               { "id": "ultramarine", "variantName": "Ultramarine Sport Loop" },
               { "id": "lakeGreen", "variantName": "Lake Green Sport Loop" },
               { "id": "ink", "variantName": "Ink Sport Loop" }
@@ -76,7 +76,7 @@
           {
             "id": "sportBand",
             "variantName": "Sport Band",
-            "variantGridList": [
+            "variants": [
               { "id": "denim", "variantName": "Denim Sport Band" },
               { "id": "lakeGreen", "variantName": "Lake Green Sport Band" },
               { "id": "black", "variantName": "Black Sport Band" }
@@ -85,7 +85,7 @@
           {
             "id": "fineWoven",
             "variantName": "FineWoven",
-            "variantGridList": [
+            "variants": [
               {
                 "id": "darkTaupeMagneticLink",
                 "variantName": "Dark Taupe Magnetic Link"
@@ -103,7 +103,7 @@
           {
             "id": "braidedSoloLoop",
             "variantName": "Braided Solo Loop",
-            "variantGridList": [
+            "variants": [
               {
                 "id": "denimBraided",
                 "variantName": "Denim Braided Solo Loop"
@@ -121,7 +121,7 @@
           {
             "id": "soloLoop",
             "variantName": "Solo Loop",
-            "variantGridList": [
+            "variants": [
               { "id": "starFruit", "variantName": "Star Fruit Solo Loop" },
               { "id": "ultramarine", "variantName": "Ultramarine Solo Loop" },
               { "id": "black", "variantName": "Black Solo Loop" }
@@ -133,12 +133,12 @@
   },
   {
     "id": "appleWatchHermèsSeries10",
-    "collectionName": "Apple Watch Hermès Series 10",
-    "collectionCustomization": []
+    "variantName": "Apple Watch Hermès Series 10",
+    "variants": []
   },
   {
     "id": "appleWatchSE",
-    "collectionName": "Apple Watch SE",
-    "collectionCustomization": []
+    "variantName": "Apple Watch SE",
+    "variants": []
   }
 ]

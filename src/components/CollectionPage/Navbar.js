@@ -1,16 +1,19 @@
 "use client";
-import { imagePrefixHandler } from "@/utilities/commonFunction";
+import {
+  getComponentText,
+  imagePrefixHandler,
+} from "@/utilities/commonFunction";
 import Image from "next/image";
 import React, { useState } from "react";
 import CollectionDialogBox from "./CollectionDialogBox";
 
 function Navbar({
   customizeWatchJson,
-  content,
   currentCollection,
   changeCurrentCollection,
   customizeActive,
 }) {
+  const content = getComponentText("collectionPage.navbar");
   const [open, setOpen] = useState(false);
 
   // Close collection dialog box
@@ -27,7 +30,7 @@ function Navbar({
         currentCollection={currentCollection}
         changeCurrentCollection={changeCurrentCollection}
       />
-      <div className="relative h-[117px] px-[24px]">
+      <div className="relative h-[117px] select-none px-[24px]">
         <Image
           src={imagePrefixHandler(
             "/apple-watch-design-studio-logo.jpeg",
@@ -43,7 +46,7 @@ function Navbar({
           onClick={() => setOpen(true)}
           className={`${customizeActive ? "block" : "hidden"} absolute left-1/2 top-[32px] flex -translate-x-1/2 cursor-pointer items-center gap-x-[5.2px] text-[17px] leading-[25px] tracking-[-0.37px]`}
         >
-          {content?.navbar?.collection?.para}
+          {content?.collection?.para}
           <Image
             loading="lazy"
             src={imagePrefixHandler("/arrow-down.svg", "/svg")}
@@ -54,9 +57,9 @@ function Navbar({
           />
         </p>
         <button
-          className={`${customizeActive ? "block" : "hidden"} absolute right-[18px] top-[24px] animate-showAnimation1d5s rounded-full bg-primaryButtonColor px-[16px] py-[9px] text-[13.67px] leading-[18px] tracking-[-0.22px] text-white opacity-0 hover:bg-primaryButtonColor/[0.97]`}
+          className={`${customizeActive ? "block" : "hidden"} animate-showAnimation1d8s absolute right-[18px] top-[24px] rounded-full bg-primaryButtonColor px-[16px] py-[9px] text-[13.67px] leading-[18px] tracking-[-0.22px] text-white opacity-0 hover:bg-primaryButtonColor/[0.97]`}
         >
-          {content?.navbar?.save?.para}
+          {content?.save?.para}
         </button>
       </div>
     </>

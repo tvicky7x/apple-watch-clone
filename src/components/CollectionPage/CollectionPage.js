@@ -70,28 +70,25 @@ function CollectionPage() {
     <div className="relative min-h-screen">
       <Navbar
         customizeWatchJson={customizeWatchJson}
-        content={content}
         changeCurrentCollection={changeCurrentCollection}
         customizeActive={customizeActive}
         currentCollection={currentCollection}
       />
-      <div className="max-h-700:top-[82px] absolute top-[13vh] w-full">
+      <div className="max-h-700:top-[82px] min-h-950:top-[17vh] min-h-1100:top-[21vh] absolute w-full">
         <MainHeading
           content={content?.mainHeading}
           customizeActive={customizeActive}
           customizeActiveHandler={customizeActiveHandler}
         />
-        {!customizeTabActive && (
-          <MainWatch
-            customizeActive={customizeActive}
-            currentCollection={currentCollection}
-            currentSize={currentSize}
-            currentCase={currentCase}
-            currentCaseVariant={currentCaseVariant}
-            currentBand={currentBand}
-            currentBandVariant={currentBandVariant}
-          />
-        )}
+        <MainWatch
+          customizeActive={customizeActive}
+          currentCollection={currentCollection}
+          currentSize={currentSize}
+          currentCase={currentCase}
+          currentCaseVariant={currentCaseVariant}
+          currentBand={currentBand}
+          currentBandVariant={currentBandVariant}
+        />
       </div>
 
       {/* Customize Tabs */}

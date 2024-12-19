@@ -9,6 +9,11 @@ export default {
     extend: {
       screens: {
         "max-h-700": { raw: "(max-height: 700px)" },
+        "min-h-950": { raw: "(min-height:950px)" },
+        "min-h-1100": { raw: "(min-height:1100px)" },
+        "min-w-768-max-w-1024": {
+          raw: "(min-width:768px) and (max-width:1024px)",
+        },
       },
       colors: {
         primaryButtonColor: "#0071E3",
@@ -17,6 +22,10 @@ export default {
         collectionDivider: "#D2D2D7",
         collectionActiveColor: "#86868B",
         collectionHoverColor: "#06c",
+        collectionTextColor: "#6E6E73",
+      },
+      spacing: {
+        "calc-2vh-8px": "calc(2vh + 8px)",
       },
       keyframes: {
         showAnimationKeyFrame: {
@@ -36,8 +45,8 @@ export default {
       animation: {
         showAnimation: "showAnimationKeyFrame .5s ease-in-out .3s forwards",
         hideAnimation: "hideAnimationKeyFrame .5s ease-in-out .3s forwards",
-        showAnimation1d5s:
-          "showAnimationKeyFrame .2s ease-in-out 1.5s forwards",
+        showAnimation1d8s:
+          "showAnimationKeyFrame .2s ease-in-out 1.8s forwards",
         openfilter: "openfilter 1.1s ease 1 forwards",
       },
     },

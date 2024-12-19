@@ -8,6 +8,10 @@
       "para": "Apple Watch Studio",
       "heading": ["Choose a case.", "Pick a band.", "Create your own style."],
       "button": "Get Started"
+    },
+    "watchDescriptionText": {
+      "sideView": { "para": "Side view" },
+      "price": { "para": "From $" }
     }
   }
 }

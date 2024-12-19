@@ -14,11 +14,11 @@ function CustomizeTabs({
 }) {
   return (
     <div
-      className={`${customizeActive ? "block" : "hidden"} absolute bottom-[61px] left-1/2 flex -translate-x-1/2 animate-showAnimation1d5s items-center gap-x-[12px] opacity-0`}
+      className={`${customizeActive ? "block" : "hidden"} animate-showAnimation1d8s absolute bottom-[61px] left-1/2 flex -translate-x-1/2 items-center gap-x-[12px] opacity-0`}
     >
       {customizeWatchJson
         .find((item) => item?.id === currentCollection)
-        ?.collectionCustomization?.map((item, index) => {
+        ?.variants?.map((item, index) => {
           return (
             <div
               key={index}
@@ -27,8 +27,8 @@ function CustomizeTabs({
             >
               <Image
                 loading="lazy"
-                src={imagePrefixHandler(item?.customizeImageUrl, "/svg")}
-                alt={item?.customizeName}
+                src={imagePrefixHandler(item?.variantImageUrl, "/svg")}
+                alt={item?.variantName}
                 width={25}
                 height={25}
                 className="h-[25px] w-auto px-[5px]"
@@ -49,7 +49,7 @@ function CustomizeTabs({
                   </ul>
                 ) : (
                   <span className="cursor-pointer py-[6px] pe-[3px] ps-[1px]">
-                    {item?.customizeName}
+                    {item?.variantName}
                   </span>
                 )}
               </div>
