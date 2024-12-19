@@ -1,5 +1,9 @@
 {
   "collectionPage": {
+    "navbar": {
+      "collection": { "para": "Collections" },
+      "save": { "para": "Save" }
+    },
     "mainHeading": {
       "para": "Apple Watch Studio",
       "heading": ["Choose a case.", "Pick a band.", "Create your own style."],

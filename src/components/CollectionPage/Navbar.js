@@ -1,22 +1,65 @@
+"use client";
 import { imagePrefixHandler } from "@/utilities/commonFunction";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import CollectionDialogBox from "./CollectionDialogBox";
 
-function Navbar() {
+function Navbar({
+  customizeWatchJson,
+  content,
+  currentCollection,
+  changeCurrentCollection,
+  customizeActive,
+}) {
+  const [open, setOpen] = useState(false);
+
+  // Close collection dialog box
+  function closeCollectionDialogBox() {
+    setOpen(false);
+  }
+
   return (
-    <div className="relative h-[114px] px-[24px]">
-      <Image
-        src={imagePrefixHandler(
-          "/apple-watch-design-studio-logo.jpeg",
-          "/jpeg",
-        )}
-        alt="apple-watch-design-studio-logo"
-        width={118}
-        height={26}
-        priority={true}
-        className="absolute left-[33px] top-[32px] aspect-auto w-[90px]"
+    <>
+      <CollectionDialogBox
+        open={open}
+        onClose={closeCollectionDialogBox}
+        customizeWatchJson={customizeWatchJson}
+        currentCollection={currentCollection}
+        changeCurrentCollection={changeCurrentCollection}
       />
-    </div>
+      <div className="relative h-[117px] px-[24px]">
+        <Image
+          src={imagePrefixHandler(
+            "/apple-watch-design-studio-logo.jpeg",
+            "/jpeg",
+          )}
+          alt="apple-watch-design-studio-logo"
+          width={118}
+          height={26}
+          priority={true}
+          className="absolute left-[33px] top-[32px] aspect-auto w-[90px]"
+        />
+        <p
+          onClick={() => setOpen(true)}
+          className={`${customizeActive ? "block" : "hidden"} absolute left-1/2 top-[32px] flex -translate-x-1/2 cursor-pointer items-center gap-x-[5.2px] text-[17px] leading-[25px] tracking-[-0.37px]`}
+        >
+          {content?.navbar?.collection?.para}
+          <Image
+            loading="lazy"
+            src={imagePrefixHandler("/arrow-down.svg", "/svg")}
+            alt="arrow down icon"
+            width={8.54}
+            height={4.87}
+            className="aspect-auto w-[8.54px]"
+          />
+        </p>
+        <button
+          className={`${customizeActive ? "block" : "hidden"} absolute right-[18px] top-[24px] animate-showAnimation1d5s rounded-full bg-primaryButtonColor px-[16px] py-[9px] text-[13.67px] leading-[18px] tracking-[-0.22px] text-white opacity-0 hover:bg-primaryButtonColor/[0.97]`}
+        >
+          {content?.navbar?.save?.para}
+        </button>
+      </div>
+    </>
   );
 }
 

@@ -12,9 +12,17 @@ import Image from "next/image";
 
 function CollectionPage() {
   const content = getComponentText("collectionPage");
+  const [currentCollection, setCurrentCollection] = useState(
+    customizeWatchJson[0],
+  );
   const [customizeActive, setCustomizeActive] = useState(false);
   const [customizeTabActive, setCustomizeTabActive] = useState(false);
   const [customizeTabVariants, setCustomizeTabVariants] = useState({});
+
+  // changing current collection
+  function changeCurrentCollection(collection) {
+    setCurrentCollection(collection);
+  }
 
   //customizeActive function
   function customizeActiveHandler() {
@@ -26,11 +34,16 @@ function CollectionPage() {
     setCustomizeTabVariants(currentVariantTab);
     setCustomizeTabActive(true);
   }
-  console.log(customizeTabVariants);
 
   return (
     <div className="relative min-h-screen">
-      <Navbar />
+      <Navbar
+        currentCollection={currentCollection}
+        customizeWatchJson={customizeWatchJson}
+        content={content}
+        changeCurrentCollection={changeCurrentCollection}
+        customizeActive={customizeActive}
+      />
       <div className="relative">
         <MainHeading
           content={content?.mainHeading}
@@ -40,7 +53,7 @@ function CollectionPage() {
         {!customizeTabActive && <MainWatch customizeActive={customizeActive} />}
       </div>
       {/* Customize Tabs */}
-      <div
+      {/* <div
         className={`${customizeActive ? "block" : "hidden"} animate-showAnimation1d5s absolute bottom-[61px] left-1/2 flex -translate-x-1/2 items-center gap-x-[12px] opacity-0`}
       >
         {customizeWatchJson?.map((item, index) => {
@@ -77,7 +90,7 @@ function CollectionPage() {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 }

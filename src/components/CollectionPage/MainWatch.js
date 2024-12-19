@@ -14,7 +14,7 @@ function MainWatch({ customizeActive }) {
           width={1000}
           height={1000}
           priority={true}
-          className="aspect-auto w-[458px]"
+          className="aspect-auto w-[474px]"
         />
         <Image
           src={imagePrefixHandler(
@@ -25,7 +25,7 @@ function MainWatch({ customizeActive }) {
           width={1000}
           height={1000}
           priority={true}
-          className="absolute top-0 aspect-auto w-[458px]"
+          className="absolute top-0 aspect-auto w-[474px]"
         />
       </div>
     </div>
