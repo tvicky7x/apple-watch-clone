@@ -53,7 +53,7 @@ function Navbar({
             alt="arrow down icon"
             width={8.54}
             height={4.87}
-            className="aspect-auto w-[8.54px]"
+            className="aspect-auto w-[10px]"
           />
         </p>
         <button

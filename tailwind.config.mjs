@@ -14,6 +14,7 @@ export default {
         "min-w-768-max-w-1024": {
           raw: "(min-width:768px) and (max-width:1024px)",
         },
+        "max-h-770": { raw: "(max-height:770px)" },
       },
       colors: {
         primaryButtonColor: "#0071E3",
