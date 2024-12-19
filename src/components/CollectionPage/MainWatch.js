@@ -16,7 +16,7 @@ function MainWatch({
 }) {
   return (
     <div
-      className={`${!customizeActive ? "top-[33.75rem] scale-[2]" : "top-0 scale-[1]"} absolute left-1/2 -translate-x-1/2 transition-all duration-[1.5s] ease-in-out`}
+      className={`${!customizeActive ? "top-[33.75rem] scale-[2]" : "top-0 scale-[1]"} absolute left-1/2 -translate-x-1/2 transition-all delay-[0.4s] duration-[1.2s] ease-in`}
     >
       <div className="animate-showAnimation opacity-0">
         <Image

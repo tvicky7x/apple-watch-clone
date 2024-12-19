@@ -18,9 +18,9 @@
           {
             "id": "42",
             "variantName": "42mm",
-            "variantGridList": []
+            "plainWatchView": true
           },
-          { "id": "46", "variantName": "46mm", "variantGridList": [] }
+          { "id": "46", "variantName": "46mm", "plainWatchView": true }
         ]
       },
       {
@@ -30,10 +30,17 @@
         "variants": [
           {
             "id": "aluminum",
-            "variantName": "aluminum",
-            "variantGridList": []
+            "variantName": "Aluminum",
+            "variantGridList": [
+              { "id": "jetBlack", "variantName": "Jet Black" },
+              { "id": "roseGold", "variantName": "Rose Gold" }
+            ]
           },
-          { "id": "titanium", "variantName": "titanium", "variantGridList": [] }
+          {
+            "id": "titanium",
+            "variantName": "Titanium",
+            "variantGridList": [{ "id": "gold", "variantName": "Gold" }]
+          }
         ]
       },
       {
@@ -44,32 +51,81 @@
           {
             "id": "stainlessSteel",
             "variantName": "Stainless Steel",
-            "variantGridList": []
+            "variantGridList": [
+              {
+                "id": "naturalMilaneseLoop",
+                "variantName": "Natural Milanese Loop"
+              },
+              { "id": "goldMilaneseLoop", "variantName": "Gold Milanese Loop" },
+              {
+                "id": "naturalLinkBracelet",
+                "variantName": "Natural Link Bracelet"
+              },
+              { "id": "goldLinkBracelet", "variantName": "Gold Link Bracelet" }
+            ]
           },
           {
             "id": "sportLoop",
             "variantName": "Sport Loop",
-            "variantGridList": []
+            "variantGridList": [
+              { "id": "ultramarine", "variantName": "Ultramarine Sport Loop" },
+              { "id": "lakeGreen", "variantName": "Lake Green Sport Loop" },
+              { "id": "ink", "variantName": "Ink Sport Loop" }
+            ]
           },
           {
             "id": "sportBand",
             "variantName": "Sport Band",
-            "variantGridList": []
+            "variantGridList": [
+              { "id": "denim", "variantName": "Denim Sport Band" },
+              { "id": "lakeGreen", "variantName": "Lake Green Sport Band" },
+              { "id": "black", "variantName": "Black Sport Band" }
+            ]
           },
           {
             "id": "fineWoven",
             "variantName": "FineWoven",
-            "variantGridList": []
+            "variantGridList": [
+              {
+                "id": "darkTaupeMagneticLink",
+                "variantName": "Dark Taupe Magnetic Link"
+              },
+              {
+                "id": "blackberryMagneticLink",
+                "variantName": "Blackberry Magnetic Link"
+              },
+              {
+                "id": "blackMagneticLink",
+                "variantName": "Black Magnetic Link"
+              }
+            ]
           },
           {
             "id": "braidedSoloLoop",
             "variantName": "Braided Solo Loop",
-            "variantGridList": []
+            "variantGridList": [
+              {
+                "id": "denimBraided",
+                "variantName": "Denim Braided Solo Loop"
+              },
+              {
+                "id": "lakeGreenBraided",
+                "variantName": "Green Braided Solo Loop"
+              },
+              {
+                "id": "midnightBraided",
+                "variantName": "Midnight Braided Solo Loop"
+              }
+            ]
           },
           {
             "id": "soloLoop",
             "variantName": "Solo Loop",
-            "variantGridList": []
+            "variantGridList": [
+              { "id": "starFruit", "variantName": "Star Fruit Solo Loop" },
+              { "id": "ultramarine", "variantName": "Ultramarine Solo Loop" },
+              { "id": "black", "variantName": "Black Solo Loop" }
+            ]
           }
         ]
       }
