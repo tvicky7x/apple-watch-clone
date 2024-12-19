@@ -14,3 +14,20 @@ export function getComponentText(path) {
 export function imagePrefixHandler(imageUrl, prefix) {
   return `${prefix}${imageUrl}`;
 }
+
+// watch image imports
+export function watchBandImageUrl(
+  currentSize,
+  currentBand,
+  currentBandVariant,
+) {
+  return `/jpeg/watch-band/watch-band-${currentSize}-${currentBand}-${currentBandVariant}.jpeg`;
+}
+
+export function watchCaseImageUrl(
+  currentSize,
+  currentCase,
+  currentCaseVariant,
+) {
+  return `/png/watch-case/watch-case-${currentSize}-${currentCase}-${currentCaseVariant}.png`;
+}

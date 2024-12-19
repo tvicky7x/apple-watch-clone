@@ -35,13 +35,16 @@ function CollectionDialogBox({
           return (
             <React.Fragment key={index}>
               <p
-                onClick={() => changeCurrentCollection(item)}
-                className={`${currentCollection?.id === item?.id ? "text-collectionActiveColor" : "hover:text-collectionHoverColor"} cursor-pointer text-[17px] leading-[25px] tracking-[-0.37px]`}
+                onClick={() => {
+                  changeCurrentCollection(item?.id);
+                  onClose();
+                }}
+                className={`${currentCollection === item?.id ? "text-collectionActiveColor" : "hover:text-collectionHoverColor"} cursor-pointer text-[17px] leading-[25px] tracking-[-0.37px]`}
               >
                 {item["collectionName"]}
               </p>
               {index !== array.length - 1 && (
-                <div className="bg-collectionDivider my-[17px] h-[1px]" />
+                <div className="my-[17px] h-[1px] bg-collectionDivider" />
               )}
             </React.Fragment>
           );

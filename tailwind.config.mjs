@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        "max-h-700": { raw: "(max-height: 700px)" },
+      },
       colors: {
         primaryButtonColor: "#0071E3",
         primaryTextColor: "#1D1D1F",
@@ -20,11 +23,17 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        openfilter: {
+          "0%": { "max-width": "34px" },
+          "95%": { "max-width": "500px" },
+          "100%": { overflow: "visible" },
+        },
       },
       animation: {
         showAnimation: "showAnimationKeyFrame .5s ease-in-out .3s forwards",
         showAnimation1d5s:
           "showAnimationKeyFrame .2s ease-in-out 1.5s forwards",
+        openfilter: "openfilter 1.1s ease 1 forwards",
       },
     },
   },

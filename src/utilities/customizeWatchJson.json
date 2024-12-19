@@ -1,51 +1,88 @@
 [
   {
-    "collectionName": "Apple Watch Series 10",
     "id": "appleWatchSeries10",
+    "collectionName": "Apple Watch Series 10",
+    "defaultCustomize": {
+      "currentSize": "46",
+      "currentCase": "aluminum",
+      "currentCaseVariant": "jetBlack",
+      "currentBand": "soloLoop",
+      "currentBandVariant": "black"
+    },
     "collectionCustomization": [
       {
+        "id": "size",
         "customizeName": "Size",
         "customizeImageUrl": "/size.svg",
         "variants": [
           {
+            "id": "42",
             "variantName": "42mm",
-            "variantGridList": [{ "gridImageUrl": "" }]
+            "variantGridList": []
           },
-          { "variantName": "46mm", "variantGridList": [] }
+          { "id": "46", "variantName": "46mm", "variantGridList": [] }
         ]
       },
       {
+        "id": "case",
         "customizeName": "Case",
         "customizeImageUrl": "/case.svg",
         "variants": [
-          { "variantName": "aluminum", "variantGridList": [] },
-          { "variantName": "titanium", "variantGridList": [] }
+          {
+            "id": "aluminum",
+            "variantName": "aluminum",
+            "variantGridList": []
+          },
+          { "id": "titanium", "variantName": "titanium", "variantGridList": [] }
         ]
       },
       {
+        "id": "band",
         "customizeName": "Band",
         "customizeImageUrl": "/band.svg",
         "variants": [
-          { "variantName": "Stainless Steel", "variantGridList": [] },
-          { "variantName": "Sport Loop", "variantGridList": [] },
-          { "variantName": "Sport Band", "variantGridList": [] },
-          { "variantName": "FineWoven", "variantGridList": [] },
-          { "variantName": "Braided Solo Loop", "variantGridList": [] },
-          { "variantName": "Solo Loo", "variantGridList": [] },
-          { "variantName": "Nike Sport Loop", "variantGridList": [] },
-          { "variantName": "Nike Sport Band", "variantGridList": [] }
+          {
+            "id": "stainlessSteel",
+            "variantName": "Stainless Steel",
+            "variantGridList": []
+          },
+          {
+            "id": "sportLoop",
+            "variantName": "Sport Loop",
+            "variantGridList": []
+          },
+          {
+            "id": "sportBand",
+            "variantName": "Sport Band",
+            "variantGridList": []
+          },
+          {
+            "id": "fineWoven",
+            "variantName": "FineWoven",
+            "variantGridList": []
+          },
+          {
+            "id": "braidedSoloLoop",
+            "variantName": "Braided Solo Loop",
+            "variantGridList": []
+          },
+          {
+            "id": "soloLoop",
+            "variantName": "Solo Loop",
+            "variantGridList": []
+          }
         ]
       }
     ]
   },
   {
-    "collectionName": "Apple Watch Hermès Series 10",
     "id": "appleWatchHermèsSeries10",
+    "collectionName": "Apple Watch Hermès Series 10",
     "collectionCustomization": []
   },
   {
-    "collectionName": "Apple Watch SE",
     "id": "appleWatchSE",
+    "collectionName": "Apple Watch SE",
     "collectionCustomization": []
   }
 ]
