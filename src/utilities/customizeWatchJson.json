@@ -12,6 +12,7 @@
     "variants": [
       {
         "id": "size",
+        "changeId": "size",
         "variantName": "Size",
         "variantImageUrl": "/size.svg",
         "variants": [
@@ -20,16 +21,22 @@
             "variantName": "42mm",
             "plainWatchView": true
           },
-          { "id": "46", "variantName": "46mm", "plainWatchView": true }
+          {
+            "id": "46",
+            "variantName": "46mm",
+            "plainWatchView": true
+          }
         ]
       },
       {
         "id": "case",
+        "changeId": "case",
         "variantName": "Case",
         "variantImageUrl": "/case.svg",
         "variants": [
           {
             "id": "aluminum",
+            "changeId": "caseVariant",
             "variantName": "Aluminum Case",
             "variants": [
               { "id": "jetBlack", "variantName": "Jet Black" },
@@ -38,6 +45,7 @@
           },
           {
             "id": "titanium",
+            "changeId": "caseVariant",
             "variantName": "Titanium Case",
             "variants": [{ "id": "gold", "variantName": "Gold" }]
           }
@@ -45,11 +53,13 @@
       },
       {
         "id": "band",
+        "changeId": "band",
         "variantName": "Band",
         "variantImageUrl": "/band.svg",
         "variants": [
           {
             "id": "stainlessSteel",
+            "changeId": "bandVariant",
             "variantName": "Stainless Steel",
             "variants": [
               {
@@ -66,6 +76,7 @@
           },
           {
             "id": "sportLoop",
+            "changeId": "bandVariant",
             "variantName": "Sport Loop",
             "variants": [
               { "id": "ultramarine", "variantName": "Ultramarine Sport Loop" },
@@ -75,6 +86,7 @@
           },
           {
             "id": "sportBand",
+            "changeId": "bandVariant",
             "variantName": "Sport Band",
             "variants": [
               { "id": "denim", "variantName": "Denim Sport Band" },
@@ -84,6 +96,7 @@
           },
           {
             "id": "fineWoven",
+            "changeId": "bandVariant",
             "variantName": "FineWoven",
             "variants": [
               {
@@ -102,6 +115,7 @@
           },
           {
             "id": "braidedSoloLoop",
+            "changeId": "bandVariant",
             "variantName": "Braided Solo Loop",
             "variants": [
               {
@@ -120,6 +134,7 @@
           },
           {
             "id": "soloLoop",
+            "changeId": "bandVariant",
             "variantName": "Solo Loop",
             "variants": [
               { "id": "starFruit", "variantName": "Star Fruit Solo Loop" },

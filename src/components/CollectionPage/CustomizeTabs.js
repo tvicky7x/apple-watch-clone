@@ -11,6 +11,7 @@ function CustomizeTabs({
   currentCase,
   currentBand,
   customizeTabVariants,
+  changeCurrentCustomizations,
 }) {
   return (
     <div
@@ -39,6 +40,18 @@ function CustomizeTabs({
                     {customizeTabVariants?.variants?.map((element, index) => {
                       return (
                         <li
+                          onClick={() => {
+                            changeCurrentCustomizations(
+                              element?.id,
+                              item?.changeId,
+                            );
+                            if (element?.variants) {
+                              changeCurrentCustomizations(
+                                element?.variants[0].id,
+                                element?.changeId,
+                              );
+                            }
+                          }}
                           key={index}
                           className={`${(element?.id === currentSize || element?.id === currentCase || element?.id === currentBand) && "font-semibold"} cursor-pointer px-[6px] py-[6px]`}
                         >

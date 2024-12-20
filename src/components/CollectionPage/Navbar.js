@@ -10,7 +10,7 @@ import CollectionDialogBox from "./CollectionDialogBox";
 function Navbar({
   customizeWatchJson,
   currentCollection,
-  changeCurrentCollection,
+  changeCurrentCustomizations,
   customizeActive,
 }) {
   const content = getComponentText("collectionPage.navbar");
@@ -28,7 +28,7 @@ function Navbar({
         onClose={closeCollectionDialogBox}
         customizeWatchJson={customizeWatchJson}
         currentCollection={currentCollection}
-        changeCurrentCollection={changeCurrentCollection}
+        changeCurrentCustomizations={changeCurrentCustomizations}
       />
       <div className="relative h-[117px] select-none px-[24px]">
         <Image

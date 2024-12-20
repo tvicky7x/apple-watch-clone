@@ -36,8 +36,27 @@ function CollectionPage() {
   const [customizeTabVariants, setCustomizeTabVariants] = useState({});
 
   // changing current collection
-  function changeCurrentCollection(collection) {
-    setCurrentCollection(collection);
+  function changeCurrentCustomizations(value, key) {
+    switch (key) {
+      case "collection":
+        setCurrentCollection(value);
+        break;
+      case "size":
+        setCurrentSize(value);
+        break;
+      case "case":
+        setCurrentCase(value);
+        break;
+      case "caseVariant":
+        setCurrentCaseVariant(value);
+        break;
+      case "band":
+        setCurrentBand(value);
+        break;
+      case "bandVariant":
+        setCurrentBandVariant(value);
+        break;
+    }
   }
 
   //customizeActive function
@@ -70,7 +89,7 @@ function CollectionPage() {
     <div className="relative min-h-screen">
       <Navbar
         customizeWatchJson={customizeWatchJson}
-        changeCurrentCollection={changeCurrentCollection}
+        changeCurrentCustomizations={changeCurrentCustomizations}
         customizeActive={customizeActive}
         currentCollection={currentCollection}
       />
@@ -97,6 +116,7 @@ function CollectionPage() {
         customizeActive={customizeActive}
         customizeTabVariants={customizeTabVariants}
         customizeTabVariantsHandler={customizeTabVariantsHandler}
+        changeCurrentCustomizations={changeCurrentCustomizations}
         // All currents customization
         currentCollection={currentCollection}
         currentSize={currentSize}

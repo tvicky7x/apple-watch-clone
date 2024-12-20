@@ -6,7 +6,7 @@ function CollectionDialogBox({
   onClose,
   customizeWatchJson,
   currentCollection,
-  changeCurrentCollection,
+  changeCurrentCustomizations,
 }) {
   return (
     <Dialog
@@ -36,7 +36,7 @@ function CollectionDialogBox({
             <React.Fragment key={index}>
               <p
                 onClick={() => {
-                  changeCurrentCollection(item?.id);
+                  changeCurrentCustomizations(item?.id, "collection");
                   onClose();
                 }}
                 className={`${currentCollection === item?.id ? "text-collectionActiveColor" : "hover:text-collectionHoverColor"} cursor-pointer text-[17px] leading-[25px] tracking-[-0.37px]`}
