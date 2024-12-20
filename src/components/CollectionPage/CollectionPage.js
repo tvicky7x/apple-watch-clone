@@ -9,6 +9,7 @@ import MainHeading from "./MainHeading";
 import MainWatch from "./MainWatch";
 import customizeWatchJson from "../../utilities/customizeWatchJson.json";
 import CustomizeTabs from "./CustomizeTabs";
+import CustomizationSelector from "./CustomizationSelector";
 
 function CollectionPage() {
   const content = getComponentText("collectionPage");
@@ -106,8 +107,10 @@ function CollectionPage() {
         />
         <MainWatch
           customizeActive={customizeActive}
+          customizeTabActive={customizeTabActive}
           sideViewActive={sideViewActive}
           sideViewHandler={sideViewHandler}
+          customizeTabVariants={customizeTabVariants}
           // All current customization
           currentCollection={currentCollection}
           currentSize={currentSize}
@@ -116,6 +119,17 @@ function CollectionPage() {
           currentBand={currentBand}
           currentBandVariant={currentBandVariant}
         />
+        <div className="absolute top-0 z-20 w-full">
+          <CustomizationSelector
+            customizeTabVariants={customizeTabVariants}
+            currentCollection={currentCollection}
+            currentSize={currentSize}
+            currentCase={currentCase}
+            currentCaseVariant={currentCaseVariant}
+            currentBand={currentBand}
+            currentBandVariant={currentBandVariant}
+          />
+        </div>
       </div>
 
       {/* Customize Tabs */}

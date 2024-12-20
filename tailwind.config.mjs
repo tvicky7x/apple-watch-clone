@@ -27,6 +27,8 @@ export default {
       },
       spacing: {
         "calc-2vh-8px": "calc(2vh + 8px)",
+        "calc--26vh-156px": "calc(-26vh + 156px)",
+        "calc-50vw-156px": "calc(50vw - 156px)",
       },
       keyframes: {
         showAnimationKeyFrame: {

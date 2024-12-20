@@ -39,8 +39,8 @@
             "changeId": "caseVariant",
             "variantName": "Aluminum Case",
             "variants": [
-              { "id": "jetBlack", "variantName": "Jet Black" },
-              { "id": "roseGold", "variantName": "Rose Gold" }
+              { "id": "roseGold", "variantName": "Rose Gold" },
+              { "id": "jetBlack", "variantName": "Jet Black" }
             ]
           },
           {
