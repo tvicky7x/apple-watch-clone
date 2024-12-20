@@ -49,6 +49,8 @@ export default {
         showAnimation1d8s:
           "showAnimationKeyFrame .2s ease-in-out 1.8s forwards",
         openfilter: "openfilter 1.1s ease 1 forwards",
+        spinShowAnimation: "showAnimationKeyFrame .5s ease forwards",
+        spinHideAnimation: "hideAnimationKeyFrame .5s ease forwards",
       },
     },
   },

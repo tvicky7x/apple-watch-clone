@@ -8,7 +8,6 @@ import {
 import MainHeading from "./MainHeading";
 import MainWatch from "./MainWatch";
 import customizeWatchJson from "../../utilities/customizeWatchJson.json";
-import Image from "next/image";
 import CustomizeTabs from "./CustomizeTabs";
 
 function CollectionPage() {
@@ -34,6 +33,7 @@ function CollectionPage() {
   const [customizeActive, setCustomizeActive] = useState(false);
   const [customizeTabActive, setCustomizeTabActive] = useState(false);
   const [customizeTabVariants, setCustomizeTabVariants] = useState({});
+  const [sideViewActive, setSideViewActive] = useState(false);
 
   // changing current collection
   function changeCurrentCustomizations(value, key) {
@@ -57,6 +57,11 @@ function CollectionPage() {
         setCurrentBandVariant(value);
         break;
     }
+  }
+
+  // Activate side view
+  function sideViewHandler() {
+    setSideViewActive(!sideViewActive);
   }
 
   //customizeActive function
@@ -101,6 +106,9 @@ function CollectionPage() {
         />
         <MainWatch
           customizeActive={customizeActive}
+          sideViewActive={sideViewActive}
+          sideViewHandler={sideViewHandler}
+          // All current customization
           currentCollection={currentCollection}
           currentSize={currentSize}
           currentCase={currentCase}

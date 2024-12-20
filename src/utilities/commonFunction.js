@@ -17,20 +17,30 @@ export function imagePrefixHandler(imageUrl, prefix) {
 }
 
 // watch image imports
-export function watchBandImageUrl(
+export function watchBandImageUrl({
   currentSize,
   currentBand,
   currentBandVariant,
-) {
+}) {
   return `/jpeg/watch-band/watch-band-${currentSize}-${currentBand}-${currentBandVariant}.jpeg`;
 }
 
-export function watchCaseImageUrl(
+export function watchCaseImageUrl({
   currentSize,
   currentCase,
   currentCaseVariant,
-) {
+}) {
   return `/png/watch-case/watch-case-${currentSize}-${currentCase}-${currentCaseVariant}.png`;
+}
+
+export function watchSideViewImageUrl({
+  currentSize,
+  currentCase,
+  currentCaseVariant,
+  currentBand,
+  currentBandVariant,
+}) {
+  return `/jpeg/watch-sideView/watch-sideView-${currentSize}-${currentCase}-${currentCaseVariant}-${currentBand}-${currentBandVariant}.jpeg`;
 }
 
 // Getting Current Watch details

@@ -5,6 +5,7 @@ import {
 import React from "react";
 
 function WatchDescriptionText({
+  sideViewHandler,
   currentCollection,
   currentSize,
   currentCase,
@@ -31,7 +32,10 @@ function WatchDescriptionText({
     <div
       className={`animate-showAnimation1d8s min-h-950:pt-[4vh] pt-calc-2vh-8px absolute left-1/2 inline-flex -translate-x-1/2 flex-col items-center gap-y-[12px] text-wrap text-center opacity-0 md:text-nowrap`}
     >
-      <span className="cursor-pointer select-none text-[12px] leading-[16px] tracking-[-0.12px] text-primaryButtonColor underline">
+      <span
+        onClick={sideViewHandler}
+        className="cursor-pointer select-none text-[12px] leading-[16px] tracking-[-0.12px] text-primaryButtonColor underline"
+      >
         {content?.sideView?.para}
       </span>
       <div className="inline-flex flex-col items-center gap-y-[4px]">
