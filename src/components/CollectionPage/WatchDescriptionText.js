@@ -6,6 +6,7 @@ import React from "react";
 
 function WatchDescriptionText({
   sideViewHandler,
+  sideViewActive,
   currentCollection,
   currentSize,
   currentCase,
@@ -30,16 +31,18 @@ function WatchDescriptionText({
   });
   return (
     <div
-      className={`animate-showAnimation1d8s min-h-950:pt-[4vh] pt-calc-2vh-8px absolute left-1/2 inline-flex -translate-x-1/2 flex-col items-center gap-y-[12px] text-wrap text-center opacity-0 md:text-nowrap`}
+      className={`absolute left-1/2 inline-flex w-max max-w-[100vw] -translate-x-1/2 animate-showAnimation1d8s flex-col items-center gap-y-[12px] pt-calc-2vh-8px text-center opacity-0 min-h-950:pt-[4vh]`}
     >
       <span
         onClick={sideViewHandler}
         className="cursor-pointer select-none text-[12px] leading-[16px] tracking-[-0.12px] text-primaryButtonColor underline"
       >
-        {content?.sideView?.para}
+        {sideViewActive
+          ? content?.sideView?.active
+          : content?.sideView?.inActive}
       </span>
       <div className="inline-flex flex-col items-center gap-y-[4px]">
-        <p className="text-collectionTextColor text-[12px] font-semibold uppercase leading-[16px] tracking-[-0.12px]">
+        <p className="text-[12px] font-semibold uppercase leading-[16px] tracking-[-0.12px] text-collectionTextColor">
           {watchCollection?.variantName}
         </p>
         <p className="text-[15px] font-medium leading-[20px] tracking-[-0.22px]">{`${watchSize?.variantName} ${watchCaseVariant?.variantName} ${watchCase?.variantName} with ${watchBandVariant?.variantName}`}</p>

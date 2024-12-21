@@ -93,7 +93,7 @@ function CollectionPage() {
   }, [currentCollection]);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative h-screen min-h-[37rem]">
       <Navbar
         customizeWatchJson={customizeWatchJson}
         changeCurrentCustomizations={changeCurrentCustomizations}

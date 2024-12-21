@@ -10,7 +10,7 @@
       "button": "Get Started"
     },
     "watchDescriptionText": {
-      "sideView": { "para": "Side view" },
+      "sideView": { "inActive": "Side view", "active": "Front view" },
       "price": { "para": "From $" }
     }
   }

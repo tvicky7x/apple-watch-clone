@@ -15,7 +15,7 @@ function CustomizeTabs({
 }) {
   return (
     <div
-      className={`${customizeActive ? "block" : "hidden"} animate-showAnimation1d8s max-h-770:bottom-[25px] absolute bottom-[61px] left-1/2 flex -translate-x-1/2 items-center gap-x-[12px] opacity-0`}
+      className={`${customizeActive ? "block" : "hidden"} absolute bottom-[61px] left-1/2 flex -translate-x-1/2 animate-showAnimation1d8s items-center gap-x-[12px] opacity-0 max-h-770:bottom-[20px]`}
     >
       {customizeWatchJson
         .find((item) => item?.id === currentCollection)
@@ -36,7 +36,7 @@ function CustomizeTabs({
               />
               <div className="my-[5px] flex flex-nowrap text-nowrap text-[16.87px] leading-[20px]">
                 {customizeTabVariants?.id === item?.id ? (
-                  <ul className="animate-openfilter flex flex-nowrap text-nowrap">
+                  <ul className="flex animate-openfilter flex-nowrap text-nowrap">
                     {customizeTabVariants?.variants?.map((element, index) => {
                       return (
                         <li

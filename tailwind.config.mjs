@@ -15,6 +15,9 @@ export default {
           raw: "(min-width:768px) and (max-width:1024px)",
         },
         "max-h-770": { raw: "(max-height:770px)" },
+        "max-w-1023-max-w-736": {
+          raw: "(max-width:1023px) and (max-width:736px)",
+        },
       },
       colors: {
         primaryButtonColor: "#0071E3",
@@ -29,6 +32,7 @@ export default {
         "calc-2vh-8px": "calc(2vh + 8px)",
         "calc--26vh-156px": "calc(-26vh + 156px)",
         "calc-50vw-156px": "calc(50vw - 156px)",
+        "calc-50p-20px": "calc(50% - 20px)",
       },
       keyframes: {
         showAnimationKeyFrame: {
