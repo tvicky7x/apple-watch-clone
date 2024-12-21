@@ -69,12 +69,12 @@ function CustomizationSelector({
   ]);
 
   return (
-    <div>
+    <div className="select-none">
       {customizeTabVariants?.id === "size" && (
         <div>
           <div
             ref={customizeTabContainer}
-            className="absolute top-0 flex ps-calc-50vw-156px"
+            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
@@ -132,7 +132,7 @@ function CustomizationSelector({
           />
           <div
             ref={customizeTabContainer}
-            className="absolute top-0 flex ps-calc-50vw-156px"
+            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
@@ -157,7 +157,7 @@ function CustomizationSelector({
                             item?.changeId,
                           );
                         }}
-                        className="w-[312px] cursor-pointer overflow-hidden"
+                        className="w-[312px] cursor-pointer snap-center overflow-hidden"
                       >
                         <Image
                           src={watchCaseImageUrl({
@@ -184,7 +184,7 @@ function CustomizationSelector({
         <div>
           <div
             ref={customizeTabContainer}
-            className="absolute top-0 flex ps-calc-50vw-156px"
+            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
