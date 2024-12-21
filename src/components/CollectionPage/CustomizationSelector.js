@@ -9,6 +9,8 @@ import React, { useEffect, useRef } from "react";
 function CustomizationSelector({
   customizeTabVariants,
   changeCurrentCustomizations,
+  sideViewHandler,
+  sideViewActive,
   currentSize,
   currentCase,
   currentCaseVariant,
@@ -17,6 +19,7 @@ function CustomizationSelector({
 }) {
   const customizeTabRefs = useRef([]);
   const customizeTabContainer = useRef();
+  const customizeStaticContainerRef = useRef();
 
   // Flatten the customizeTabVariants array
   const customizeTabVariantsArray = [];
@@ -41,20 +44,23 @@ function CustomizationSelector({
 
   let incrementalIndex = 0;
 
+  // Find currentCustomizationIndex
+  function findCurrentCustomizationIndex() {
+    return customizeTabVariantsArray.findIndex((item) => {
+      return (
+        (item.id === currentSize ||
+          item.id === currentCaseVariant ||
+          item.id === currentBandVariant) &&
+        (item.parentVariantId === "size" ||
+          item.parentVariantId === currentCase ||
+          item.parentVariantId === currentBand)
+      );
+    });
+  }
+
   useEffect(() => {
     if (customizeTabContainer.current) {
-      let currentCustomizationIndex = customizeTabVariantsArray.findIndex(
-        (item) => {
-          return (
-            (item.id === currentSize ||
-              item.id === currentCaseVariant ||
-              item.id === currentBandVariant) &&
-            (item.parentVariantId === "size" ||
-              item.parentVariantId === currentCase ||
-              item.parentVariantId === currentBand)
-          );
-        },
-      );
+      let currentCustomizationIndex = findCurrentCustomizationIndex();
       const currentCustomizationTransform =
         customizeTabRefs.current[currentCustomizationIndex].clientWidth;
       customizeTabContainer.current.style.transform = `translateX(-${currentCustomizationTransform * currentCustomizationIndex}px)`;
@@ -67,6 +73,36 @@ function CustomizationSelector({
     currentBand,
     currentBandVariant,
   ]);
+
+  useEffect(() => {
+    if (customizeTabContainer.current) {
+      let currentCustomizationIndex = findCurrentCustomizationIndex();
+      if (sideViewActive) {
+        if (customizeStaticContainerRef.current) {
+          customizeStaticContainerRef.current.style.opacity = 0;
+        }
+        customizeTabRefs.current.map((element, index) => {
+          if (element) {
+            if (index !== currentCustomizationIndex) {
+              element.style.transform = `translateX(${Math.sign(index - currentCustomizationIndex) * 160}px)`;
+            } else {
+              element.style.opacity = 0;
+            }
+          }
+        });
+      } else {
+        if (customizeStaticContainerRef.current) {
+          customizeStaticContainerRef.current.style.opacity = 1;
+        }
+        customizeTabRefs.current.map((element) => {
+          if (element) {
+            element.style.transform = `none`;
+            element.style.opacity = 1;
+          }
+        });
+      }
+    }
+  }, [sideViewActive]);
 
   return (
     <div className="select-none">
@@ -85,6 +121,10 @@ function CustomizationSelector({
                     changeCurrentCustomizations(item?.id, "size");
                   }}
                   className="w-[312px] cursor-pointer overflow-hidden"
+                  style={{
+                    transition:
+                      "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
+                  }}
                 >
                   <Image
                     src={watchBandImageUrl({
@@ -119,6 +159,7 @@ function CustomizationSelector({
       {customizeTabVariants?.id === "case" && (
         <div>
           <Image
+            ref={customizeStaticContainerRef}
             src={watchBandImageUrl({
               currentSize,
               currentBand,
@@ -129,6 +170,9 @@ function CustomizationSelector({
             height={1000}
             loading="lazy"
             className="mx-auto aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
+            style={{
+              transition: "opacity 0.5s ease 0.2s",
+            }}
           />
           <div
             ref={customizeTabContainer}
@@ -157,7 +201,11 @@ function CustomizationSelector({
                             item?.changeId,
                           );
                         }}
-                        className="w-[312px] cursor-pointer snap-center overflow-hidden"
+                        className="w-[312px] cursor-pointer overflow-hidden"
+                        style={{
+                          transition:
+                            "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
+                        }}
                       >
                         <Image
                           src={watchCaseImageUrl({
@@ -203,6 +251,7 @@ function CustomizationSelector({
                             ref)
                         }
                         onClick={() => {
+                          sideViewHandler();
                           changeCurrentCustomizations(item?.id, "band");
                           changeCurrentCustomizations(
                             element?.id,
@@ -210,6 +259,10 @@ function CustomizationSelector({
                           );
                         }}
                         className="w-[312px] cursor-pointer overflow-hidden"
+                        style={{
+                          transition:
+                            "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
+                        }}
                       >
                         <Image
                           src={watchBandImageUrl({
@@ -231,6 +284,7 @@ function CustomizationSelector({
             })}
           </div>
           <Image
+            ref={customizeStaticContainerRef}
             src={watchCaseImageUrl({
               currentSize,
               currentCase,
@@ -241,6 +295,9 @@ function CustomizationSelector({
             height={1000}
             priority={true}
             className="relative z-[5] mx-auto aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
+            style={{
+              transition: "opacity 0.5s ease 0.2s",
+            }}
           />
         </div>
       )}

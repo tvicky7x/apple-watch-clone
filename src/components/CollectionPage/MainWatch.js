@@ -26,9 +26,9 @@ function MainWatch({
     <div
       className={`${!customizeActive ? "top-[33.75rem] scale-[2]" : "top-0 scale-[1]"} absolute left-1/2 -translate-x-1/2 transition-all delay-[0.4s] duration-[1.1s] ease-in`}
     >
-      <div className="min-w-768-max-w-1024:w-[46vh] aspect-square w-[52vh] max-w-[500px]">
+      <div className="aspect-square w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]">
         <div
-          className={`${customizeTabActive ? "animate-hideAnimation" : "animate-showAnimation opacity-0"} select-none`}
+          className={`${customizeTabActive && !sideViewActive ? "animate-hideAnimation" : "animate-showAnimation opacity-0"} select-none`}
         >
           <div
             className={`${sideViewActive ? "animate-spinHideAnimation" : "animate-spinShowAnimation opacity-0"} `}
@@ -43,7 +43,7 @@ function MainWatch({
               width={1000}
               height={1000}
               priority={true}
-              className="min-w-768-max-w-1024:w-[46vh] aspect-auto w-[52vh] max-w-[500px]"
+              className="aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
             />
             <Image
               src={watchCaseImageUrl({
@@ -55,7 +55,7 @@ function MainWatch({
               width={1000}
               height={1000}
               priority={true}
-              className="min-w-768-max-w-1024:w-[46vh] absolute top-0 aspect-auto w-[52vh] max-w-[500px]"
+              className="absolute top-0 aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
             />
           </div>
           <Image
@@ -70,7 +70,7 @@ function MainWatch({
             width={1000}
             height={1000}
             priority={true}
-            className={`${!sideViewActive ? "animate-spinHideAnimation" : "animate-spinShowAnimation opacity-0"} min-w-768-max-w-1024:w-[46vh] absolute top-0 aspect-auto w-[52vh] max-w-[500px]`}
+            className={`${!sideViewActive ? "animate-spinHideAnimation" : "animate-spinShowAnimation opacity-0"} absolute top-0 aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]`}
           />
         </div>
       </div>

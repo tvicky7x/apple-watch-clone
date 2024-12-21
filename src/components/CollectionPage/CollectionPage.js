@@ -58,6 +58,7 @@ function CollectionPage() {
         setCurrentBandVariant(value);
         break;
     }
+    setSideViewActive(false);
   }
 
   // Activate side view
@@ -124,6 +125,8 @@ function CollectionPage() {
             <CustomizationSelector
               customizeTabVariants={customizeTabVariants}
               changeCurrentCustomizations={changeCurrentCustomizations}
+              sideViewActive={sideViewActive}
+              sideViewHandler={sideViewHandler}
               currentCollection={currentCollection}
               currentSize={currentSize}
               currentCase={currentCase}
