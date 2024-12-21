@@ -15,7 +15,7 @@ function CustomizeTabs({
 }) {
   return (
     <div
-      className={`${customizeActive ? "block" : "hidden"} absolute bottom-[61px] left-1/2 flex -translate-x-1/2 animate-showAnimation1d8s items-center gap-x-[12px] opacity-0 max-h-770:bottom-[20px]`}
+      className={`${customizeActive ? "block" : "hidden"} absolute bottom-[61px] flex w-full animate-showAnimation1d8s items-center justify-center gap-x-[12px] overflow-x-auto px-[18px] opacity-0 max-h-770:bottom-[20px]`}
     >
       {customizeWatchJson
         .find((item) => item?.id === currentCollection)

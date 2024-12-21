@@ -93,14 +93,14 @@ function CollectionPage() {
   }, [currentCollection]);
 
   return (
-    <div className="relative h-screen min-h-[37rem]">
+    <div className="relative h-screen min-h-[37rem] overflow-hidden">
       <Navbar
         customizeWatchJson={customizeWatchJson}
         changeCurrentCustomizations={changeCurrentCustomizations}
         customizeActive={customizeActive}
         currentCollection={currentCollection}
       />
-      <div className="absolute w-full max-h-700:top-[82px] min-h-950:top-[17vh] min-h-1100:top-[21vh]">
+      <div className="absolute top-[13vh] w-full max-h-700:top-[82px] min-h-1100:top-[21vh]">
         <MainHeading
           content={content?.mainHeading}
           customizeActive={customizeActive}
@@ -120,7 +120,8 @@ function CollectionPage() {
           currentBand={currentBand}
           currentBandVariant={currentBandVariant}
         />
-        <div className="absolute top-0 z-20 w-full">
+
+        <div className="absolute top-0 z-20 w-full max-w-1023-max-w-736:top-[40%] max-w-1023-max-w-736:-translate-y-[40%]">
           {customizeTabActive && (
             <CustomizationSelector
               customizeTabVariants={customizeTabVariants}

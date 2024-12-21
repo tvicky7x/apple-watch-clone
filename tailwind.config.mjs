@@ -12,7 +12,7 @@ export default {
         "min-h-950": { raw: "(min-height:950px)" },
         "min-h-1100": { raw: "(min-height:1100px)" },
         "min-w-768-max-w-1024": {
-          raw: "(min-width:768px) and (max-width:1024px)",
+          raw: "(min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)",
         },
         "max-h-770": { raw: "(max-height:770px)" },
         "max-w-1023-max-w-736": {
@@ -31,6 +31,8 @@ export default {
       spacing: {
         "calc-2vh-8px": "calc(2vh + 8px)",
         "calc--26vh-156px": "calc(-26vh + 156px)",
+        "calc--23vh-156px": "calc(-23vh + 156px)",
+        "calc--42.5vh-156px": "calc(-42.5vh + 156px)",
         "calc-50vw-156px": "calc(50vw - 156px)",
         "calc-50p-20px": "calc(50% - 20px)",
       },

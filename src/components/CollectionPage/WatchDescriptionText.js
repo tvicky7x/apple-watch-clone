@@ -31,7 +31,7 @@ function WatchDescriptionText({
   });
   return (
     <div
-      className={`absolute left-1/2 inline-flex w-max max-w-[100vw] -translate-x-1/2 animate-showAnimation1d8s flex-col items-center gap-y-[12px] pt-calc-2vh-8px text-center opacity-0 min-h-950:pt-[4vh]`}
+      className={`absolute left-1/2 z-30 inline-flex w-max max-w-[100vw] -translate-x-1/2 animate-showAnimation1d8s flex-col items-center gap-y-[12px] pt-[1vh] text-center opacity-0 min-h-950:pt-[4vh]`}
     >
       <span
         onClick={sideViewHandler}

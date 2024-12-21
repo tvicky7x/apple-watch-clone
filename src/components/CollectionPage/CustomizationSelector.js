@@ -107,11 +107,11 @@ function CustomizationSelector({
   return (
     <div className="select-none">
       {customizeTabVariants?.id === "size" && (
-        <div>
-          <div
-            ref={customizeTabContainer}
-            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out"
-          >
+        <div
+          ref={customizeTabContainer}
+          className="absolute ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:ps-[22.5vw]"
+        >
+          <div className="flex max-w-1023-max-w-736:-translate-y-[40%]">
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
                 <button
@@ -120,36 +120,38 @@ function CustomizationSelector({
                   onClick={() => {
                     changeCurrentCustomizations(item?.id, "size");
                   }}
-                  className="w-[312px] cursor-pointer overflow-hidden"
+                  className="w-[312px] cursor-pointer overflow-hidden max-w-1023-max-w-736:w-[55vw]"
                   style={{
                     transition:
                       "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
                   }}
                 >
-                  <Image
-                    src={watchBandImageUrl({
-                      currentSize: item?.id,
-                      currentBand,
-                      currentBandVariant,
-                    })}
-                    alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
-                    width={1000}
-                    height={1000}
-                    loading="lazy"
-                    className="ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
-                  />
-                  <Image
-                    src={watchCaseImageUrl({
-                      currentSize: item?.id,
-                      currentCase,
-                      currentCaseVariant,
-                    })}
-                    alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
-                    width={1000}
-                    height={1000}
-                    priority={true}
-                    className="absolute top-0 ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
-                  />
+                  <div className="min-w-768-max-w-1024:ms-calc--23vh-156px relative ms-calc--26vh-156px max-w-1023-max-w-736:ms-[-15vw]">
+                    <Image
+                      src={watchBandImageUrl({
+                        currentSize: item?.id,
+                        currentBand,
+                        currentBandVariant,
+                      })}
+                      alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
+                      width={1000}
+                      height={1000}
+                      loading="lazy"
+                      className="aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
+                    />
+                    <Image
+                      src={watchCaseImageUrl({
+                        currentSize: item?.id,
+                        currentCase,
+                        currentCaseVariant,
+                      })}
+                      alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
+                      width={1000}
+                      height={1000}
+                      priority={true}
+                      className="absolute top-0 aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
+                    />
+                  </div>
                 </button>
               );
             })}
@@ -169,14 +171,14 @@ function CustomizationSelector({
             width={1000}
             height={1000}
             loading="lazy"
-            className="mx-auto aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
+            className="mx-auto aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
             style={{
               transition: "opacity 0.5s ease 0.2s",
             }}
           />
           <div
             ref={customizeTabContainer}
-            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out"
+            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:ps-[22.5vw]"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
@@ -201,7 +203,7 @@ function CustomizationSelector({
                             item?.changeId,
                           );
                         }}
-                        className="w-[312px] cursor-pointer overflow-hidden"
+                        className="w-[312px] cursor-pointer overflow-hidden max-w-1023-max-w-736:w-[55vw]"
                         style={{
                           transition:
                             "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
@@ -217,7 +219,7 @@ function CustomizationSelector({
                           width={1000}
                           height={1000}
                           priority={true}
-                          className="ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
+                          className="min-w-768-max-w-1024:ms-calc--23vh-156px ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
                         />
                       </button>
                     );
@@ -232,7 +234,7 @@ function CustomizationSelector({
         <div>
           <div
             ref={customizeTabContainer}
-            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out"
+            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:ps-[22.5vw]"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
@@ -258,7 +260,7 @@ function CustomizationSelector({
                             item?.changeId,
                           );
                         }}
-                        className="w-[312px] cursor-pointer overflow-hidden"
+                        className="w-[312px] cursor-pointer overflow-hidden max-w-1023-max-w-736:w-[55vw]"
                         style={{
                           transition:
                             "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
@@ -274,7 +276,7 @@ function CustomizationSelector({
                           width={1000}
                           height={1000}
                           loading="lazy"
-                          className="ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
+                          className="min-w-768-max-w-1024:ms-calc--23vh-156px ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
                         />
                       </button>
                     );
@@ -294,7 +296,7 @@ function CustomizationSelector({
             width={1000}
             height={1000}
             priority={true}
-            className="relative z-[5] mx-auto aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh]"
+            className="relative z-[5] mx-auto aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
             style={{
               transition: "opacity 0.5s ease 0.2s",
             }}
