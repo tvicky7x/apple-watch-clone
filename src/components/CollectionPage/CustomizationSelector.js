@@ -232,9 +232,28 @@ function CustomizationSelector({
       )}
       {customizeTabVariants?.id === "band" && (
         <div>
+          <div className="mx-auto w-[312px] cursor-pointer overflow-hidden max-w-1023-max-w-736:w-[55vw]">
+            <Image
+              ref={customizeStaticContainerRef}
+              src={watchCaseImageUrl({
+                currentSize,
+                currentCase,
+                currentCaseVariant,
+              })}
+              alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
+              width={1000}
+              height={1000}
+              priority={true}
+              className="min-w-768-max-w-1024:ms-calc--23vh-156px relative z-[5] ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
+              style={{
+                transition: "opacity 0.5s ease 0.2s",
+              }}
+            />
+          </div>
+
           <div
             ref={customizeTabContainer}
-            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:ps-[22.5vw]"
+            className="absolute top-0 z-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:ps-[22.5vw]"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
@@ -285,22 +304,6 @@ function CustomizationSelector({
               );
             })}
           </div>
-          <Image
-            ref={customizeStaticContainerRef}
-            src={watchCaseImageUrl({
-              currentSize,
-              currentCase,
-              currentCaseVariant,
-            })}
-            alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
-            width={1000}
-            height={1000}
-            priority={true}
-            className="relative z-[5] mx-auto aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
-            style={{
-              transition: "opacity 0.5s ease 0.2s",
-            }}
-          />
         </div>
       )}
     </div>
