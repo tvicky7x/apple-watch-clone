@@ -99,7 +99,7 @@ function CollectionPage() {
         customizeActive={customizeActive}
         currentCollection={currentCollection}
       />
-      <div className="max-h-700:top-[82px] min-h-950:top-[17vh] min-h-1100:top-[21vh] absolute w-full">
+      <div className="absolute w-full max-h-700:top-[82px] min-h-950:top-[17vh] min-h-1100:top-[21vh]">
         <MainHeading
           content={content?.mainHeading}
           customizeActive={customizeActive}
@@ -120,15 +120,18 @@ function CollectionPage() {
           currentBandVariant={currentBandVariant}
         />
         <div className="absolute top-0 z-20 w-full">
-          <CustomizationSelector
-            customizeTabVariants={customizeTabVariants}
-            currentCollection={currentCollection}
-            currentSize={currentSize}
-            currentCase={currentCase}
-            currentCaseVariant={currentCaseVariant}
-            currentBand={currentBand}
-            currentBandVariant={currentBandVariant}
-          />
+          {customizeTabActive && (
+            <CustomizationSelector
+              customizeTabVariants={customizeTabVariants}
+              changeCurrentCustomizations={changeCurrentCustomizations}
+              currentCollection={currentCollection}
+              currentSize={currentSize}
+              currentCase={currentCase}
+              currentCaseVariant={currentCaseVariant}
+              currentBand={currentBand}
+              currentBandVariant={currentBandVariant}
+            />
+          )}
         </div>
       </div>
 
