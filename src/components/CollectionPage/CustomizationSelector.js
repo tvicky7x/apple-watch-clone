@@ -270,7 +270,7 @@ function CustomizationSelector({
         {customizeTabVariants?.id === "size" && (
           <div
             ref={customizeTabContainer}
-            className="scrollbar-hide absolute top-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:-translate-y-[40%] max-w-1023-max-w-736:px-[22.5vw]"
+            className="scrollbar-hide top-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:px-[22.5vw]"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
