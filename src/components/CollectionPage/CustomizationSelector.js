@@ -62,8 +62,13 @@ function CustomizationSelector({
     if (customizeTabContainer.current) {
       let currentCustomizationIndex = findCurrentCustomizationIndex();
       const currentCustomizationTransform =
-        customizeTabRefs.current[currentCustomizationIndex].clientWidth;
-      customizeTabContainer.current.style.transform = `translateX(-${currentCustomizationTransform * currentCustomizationIndex}px)`;
+        customizeTabRefs.current[currentCustomizationIndex]?.clientWidth;
+      if (currentCustomizationTransform !== undefined) {
+        customizeTabContainer.current.scrollTo({
+          left: currentCustomizationTransform * currentCustomizationIndex,
+          behavior: "smooth",
+        });
+      }
     }
   }, [
     customizeTabVariants,
@@ -109,53 +114,51 @@ function CustomizationSelector({
       {customizeTabVariants?.id === "size" && (
         <div
           ref={customizeTabContainer}
-          className="absolute ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:ps-[22.5vw]"
+          className="scrollbar-hide absolute top-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:-translate-y-[40%] max-w-1023-max-w-736:px-[22.5vw]"
         >
-          <div className="flex max-w-1023-max-w-736:-translate-y-[40%]">
-            {customizeTabVariants?.variants?.map((item, index) => {
-              return (
-                <button
-                  key={index}
-                  ref={(ref) => (customizeTabRefs.current[index] = ref)}
-                  onClick={() => {
-                    changeCurrentCustomizations(item?.id, "size");
-                  }}
-                  className="w-[312px] cursor-pointer overflow-hidden max-w-1023-max-w-736:w-[55vw]"
-                  style={{
-                    transition:
-                      "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
-                  }}
-                >
-                  <div className="min-w-768-max-w-1024:ms-calc--23vh-156px relative ms-calc--26vh-156px max-w-1023-max-w-736:ms-[-15vw]">
-                    <Image
-                      src={watchBandImageUrl({
-                        currentSize: item?.id,
-                        currentBand,
-                        currentBandVariant,
-                      })}
-                      alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
-                      width={1000}
-                      height={1000}
-                      loading="lazy"
-                      className="aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
-                    />
-                    <Image
-                      src={watchCaseImageUrl({
-                        currentSize: item?.id,
-                        currentCase,
-                        currentCaseVariant,
-                      })}
-                      alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
-                      width={1000}
-                      height={1000}
-                      priority={true}
-                      className="absolute top-0 aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
-                    />
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+          {customizeTabVariants?.variants?.map((item, index) => {
+            return (
+              <button
+                key={index}
+                ref={(ref) => (customizeTabRefs.current[index] = ref)}
+                onClick={() => {
+                  changeCurrentCustomizations(item?.id, "size");
+                }}
+                className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
+                style={{
+                  transition:
+                    "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
+                }}
+              >
+                <div className="min-w-768-max-w-1024:ms-calc--23vh-156px relative ms-calc--26vh-156px max-w-1023-max-w-736:ms-[-15vw]">
+                  <Image
+                    src={watchBandImageUrl({
+                      currentSize: item?.id,
+                      currentBand,
+                      currentBandVariant,
+                    })}
+                    alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
+                    width={1000}
+                    height={1000}
+                    loading="lazy"
+                    className="aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
+                  />
+                  <Image
+                    src={watchCaseImageUrl({
+                      currentSize: item?.id,
+                      currentCase,
+                      currentCaseVariant,
+                    })}
+                    alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
+                    width={1000}
+                    height={1000}
+                    priority={true}
+                    className="absolute top-0 aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
+                  />
+                </div>
+              </button>
+            );
+          })}
         </div>
       )}
       {customizeTabVariants?.id === "case" && (
@@ -178,7 +181,7 @@ function CustomizationSelector({
           />
           <div
             ref={customizeTabContainer}
-            className="absolute top-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:ps-[22.5vw]"
+            className="scrollbar-hide absolute top-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:px-[22.5vw]"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
@@ -203,7 +206,7 @@ function CustomizationSelector({
                             item?.changeId,
                           );
                         }}
-                        className="w-[312px] cursor-pointer overflow-hidden max-w-1023-max-w-736:w-[55vw]"
+                        className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
                         style={{
                           transition:
                             "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
@@ -253,7 +256,7 @@ function CustomizationSelector({
 
           <div
             ref={customizeTabContainer}
-            className="absolute top-0 z-0 flex ps-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:ps-[22.5vw]"
+            className="scrollbar-hide absolute top-0 z-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:px-[22.5vw]"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
@@ -279,7 +282,7 @@ function CustomizationSelector({
                             item?.changeId,
                           );
                         }}
-                        className="w-[312px] cursor-pointer overflow-hidden max-w-1023-max-w-736:w-[55vw]"
+                        className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
                         style={{
                           transition:
                             "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
