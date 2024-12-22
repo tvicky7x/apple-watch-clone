@@ -14,6 +14,9 @@ export default {
         "min-w-768-max-w-1024": {
           raw: "(min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)",
         },
+        "min-w-768-max-w-1024-noLandscape": {
+          raw: "(min-device-width: 768px) and (max-device-width: 1024px)",
+        },
         "max-h-770": { raw: "(max-height:770px)" },
         "max-w-1023-max-w-736": {
           raw: "(max-width:1023px) and (max-width:736px)",

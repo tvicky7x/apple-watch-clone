@@ -98,9 +98,10 @@ function CollectionPage() {
         customizeWatchJson={customizeWatchJson}
         changeCurrentCustomizations={changeCurrentCustomizations}
         customizeActive={customizeActive}
+        customizeTabActive={customizeTabActive}
         currentCollection={currentCollection}
       />
-      <div className="absolute top-[13vh] w-full max-h-700:top-[82px] min-h-1100:top-[21vh]">
+      <div className="absolute top-[13vh] w-full max-h-700:top-[82px] min-h-1100:top-[21vh] max-w-1023-max-w-736:top-[40%] max-w-1023-max-w-736:translate-y-[-60%]">
         <MainHeading
           content={content?.mainHeading}
           customizeActive={customizeActive}

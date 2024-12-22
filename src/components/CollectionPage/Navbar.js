@@ -11,6 +11,7 @@ function Navbar({
   customizeWatchJson,
   currentCollection,
   changeCurrentCustomizations,
+  customizeTabActive,
   customizeActive,
 }) {
   const content = getComponentText("collectionPage.navbar");
@@ -40,7 +41,7 @@ function Navbar({
           width={118}
           height={26}
           priority={true}
-          className="absolute left-[33px] top-[32px] aspect-auto w-[90px] max-w-1023-max-w-736:left-1/2 max-w-1023-max-w-736:top-[20px] max-w-1023-max-w-736:w-[76px] max-w-1023-max-w-736:-translate-x-1/2"
+          className={`absolute left-[33px] top-[32px] aspect-auto w-[90px] ${customizeTabActive ? "max-w-1023-max-w-736:left-1/2 max-w-1023-max-w-736:-translate-x-1/2" : "max-w-1023-max-w-736:left-[16px]"} max-w-1023-max-w-736:top-[20px] max-w-1023-max-w-736:w-[76px]`}
         />
         <p
           onClick={() => setOpen(true)}
