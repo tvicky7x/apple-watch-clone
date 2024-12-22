@@ -1,5 +1,6 @@
 "use client";
 import {
+  imagePrefixHandler,
   watchBandImageUrl,
   watchCaseImageUrl,
 } from "@/utilities/commonFunction";
@@ -59,6 +60,31 @@ function CustomizationSelector({
           item.parentVariantId === currentBand)
       );
     });
+  }
+
+  // arrow Increment
+  function arrowIncrement(index) {
+    if (customizeTabVariants?.id === "size") {
+      changeCurrentCustomizations(customizeTabVariantsArray[index]?.id, "size");
+    } else if (customizeTabVariants?.id === "band") {
+      changeCurrentCustomizations(
+        customizeTabVariantsArray[index]?.parentVariantId,
+        "band",
+      );
+      changeCurrentCustomizations(
+        customizeTabVariantsArray[index]?.id,
+        "bandVariant",
+      );
+    } else if (customizeTabVariants?.id === "case") {
+      changeCurrentCustomizations(
+        customizeTabVariantsArray[index]?.parentVariantId,
+        "case",
+      );
+      changeCurrentCustomizations(
+        customizeTabVariantsArray[index]?.id,
+        "caseVariant",
+      );
+    }
   }
 
   const handleCustomizationChange = () => {
@@ -208,206 +234,240 @@ function CustomizationSelector({
   }, [isSwiping]);
 
   return (
-    <div className="select-none">
-      {customizeTabVariants?.id === "size" && (
+    <>
+      {findCurrentCustomizationIndex() !== 0 && (
         <div
-          ref={customizeTabContainer}
-          className="scrollbar-hide absolute top-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:-translate-y-[40%] max-w-1023-max-w-736:px-[22.5vw]"
+          onClick={() => arrowIncrement(findCurrentCustomizationIndex() - 1)}
+          className="absolute left-[16px] top-1/2 z-[99] flex aspect-square w-[36px] -translate-y-1/2 select-none items-center justify-center rounded-full bg-customizeTabBg max-w-1023-max-w-736:hidden"
         >
-          {customizeTabVariants?.variants?.map((item, index) => {
-            return (
-              <button
-                key={index}
-                ref={(ref) => (customizeTabRefs.current[index] = ref)}
-                onClick={() => {
-                  changeCurrentCustomizations(item?.id, "size");
-                }}
-                className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
-                style={{
-                  transition:
-                    "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
-                }}
-              >
-                <div className="relative ms-calc--26vh-156px min-w-768-max-w-1024:ms-calc--23vh-156px max-w-1023-max-w-736:ms-[-15vw]">
-                  <Image
-                    src={watchBandImageUrl({
-                      currentSize: item?.id,
-                      currentBand,
-                      currentBandVariant,
-                    })}
-                    alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
-                    width={1000}
-                    height={1000}
-                    loading="lazy"
-                    className="aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
-                  />
-                  <Image
-                    src={watchCaseImageUrl({
-                      currentSize: item?.id,
-                      currentCase,
-                      currentCaseVariant,
-                    })}
-                    alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
-                    width={1000}
-                    height={1000}
-                    priority={true}
-                    className="absolute top-0 aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
-                  />
-                </div>
-              </button>
-            );
-          })}
+          <Image
+            src={imagePrefixHandler("/arrow-right.svg", "/svg")}
+            alt="arrow left"
+            width={10}
+            height={17}
+            className="aspect-auto w-[10px] rotate-180"
+          />
         </div>
       )}
-      {customizeTabVariants?.id === "case" && (
-        <div>
+
+      {findCurrentCustomizationIndex() !==
+        customizeTabVariantsArray.length - 1 && (
+        <div
+          onClick={() => arrowIncrement(findCurrentCustomizationIndex() + 1)}
+          className="absolute right-[16px] top-1/2 z-[99] flex aspect-square w-[36px] -translate-y-1/2 select-none items-center justify-center rounded-full bg-customizeTabBg max-w-1023-max-w-736:hidden"
+        >
           <Image
-            ref={customizeStaticContainerRef}
-            src={watchBandImageUrl({
-              currentSize,
-              currentBand,
-              currentBandVariant,
-            })}
-            alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
-            width={1000}
-            height={1000}
-            loading="lazy"
-            className="mx-auto aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
-            style={{
-              transition: "opacity 0.5s ease 0.2s",
-            }}
+            src={imagePrefixHandler("/arrow-right.svg", "/svg")}
+            alt="arrow left"
+            width={10}
+            height={17}
+            className="aspect-auto w-[10px]"
           />
+        </div>
+      )}
+
+      <div className="select-none">
+        {customizeTabVariants?.id === "size" && (
           <div
             ref={customizeTabContainer}
-            className="scrollbar-hide absolute top-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:px-[22.5vw]"
+            className="scrollbar-hide absolute top-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:-translate-y-[40%] max-w-1023-max-w-736:px-[22.5vw]"
           >
             {customizeTabVariants?.variants?.map((item, index) => {
               return (
-                <React.Fragment key={index}>
-                  {item?.variants?.map((element, innerIndex, array) => {
-                    const currentIncrementIndex =
-                      incrementalIndex + innerIndex + 1;
-                    if (innerIndex === array.length - 1) {
-                      incrementalIndex = currentIncrementIndex;
-                    }
-                    return (
-                      <button
-                        key={innerIndex}
-                        ref={(ref) =>
-                          (customizeTabRefs.current[currentIncrementIndex - 1] =
-                            ref)
-                        }
-                        onClick={() => {
-                          changeCurrentCustomizations(item?.id, "case");
-                          changeCurrentCustomizations(
-                            element?.id,
-                            item?.changeId,
-                          );
-                        }}
-                        className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
-                        style={{
-                          transition:
-                            "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
-                        }}
-                      >
-                        <Image
-                          src={watchCaseImageUrl({
-                            currentSize,
-                            currentCase: item?.id,
-                            currentCaseVariant: element?.id,
-                          })}
-                          alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
-                          width={1000}
-                          height={1000}
-                          priority={true}
-                          className="ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:ms-calc--23vh-156px min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
-                        />
-                      </button>
-                    );
-                  })}
-                </React.Fragment>
+                <button
+                  key={index}
+                  ref={(ref) => (customizeTabRefs.current[index] = ref)}
+                  onClick={() => {
+                    changeCurrentCustomizations(item?.id, "size");
+                  }}
+                  className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
+                  style={{
+                    transition:
+                      "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
+                  }}
+                >
+                  <div className="relative ms-calc--26vh-156px min-w-768-max-w-1024:ms-calc--23vh-156px max-w-1023-max-w-736:ms-[-15vw]">
+                    <Image
+                      src={watchBandImageUrl({
+                        currentSize: item?.id,
+                        currentBand,
+                        currentBandVariant,
+                      })}
+                      alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
+                      width={1000}
+                      height={1000}
+                      loading="lazy"
+                      className="aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
+                    />
+                    <Image
+                      src={watchCaseImageUrl({
+                        currentSize: item?.id,
+                        currentCase,
+                        currentCaseVariant,
+                      })}
+                      alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
+                      width={1000}
+                      height={1000}
+                      priority={true}
+                      className="absolute top-0 aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
+                    />
+                  </div>
+                </button>
               );
             })}
           </div>
-        </div>
-      )}
-      {customizeTabVariants?.id === "band" && (
-        <div>
-          <div className="mx-auto w-[312px] cursor-pointer overflow-hidden max-w-1023-max-w-736:w-[55vw]">
+        )}
+        {customizeTabVariants?.id === "case" && (
+          <div>
             <Image
               ref={customizeStaticContainerRef}
-              src={watchCaseImageUrl({
+              src={watchBandImageUrl({
                 currentSize,
-                currentCase,
-                currentCaseVariant,
+                currentBand,
+                currentBandVariant,
               })}
-              alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
+              alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
               width={1000}
               height={1000}
-              priority={true}
-              className="relative z-[5] ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:ms-calc--23vh-156px min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
+              loading="lazy"
+              className="mx-auto aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:w-[85vw]"
               style={{
                 transition: "opacity 0.5s ease 0.2s",
               }}
             />
+            <div
+              ref={customizeTabContainer}
+              className="scrollbar-hide absolute top-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:px-[22.5vw]"
+            >
+              {customizeTabVariants?.variants?.map((item, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    {item?.variants?.map((element, innerIndex, array) => {
+                      const currentIncrementIndex =
+                        incrementalIndex + innerIndex + 1;
+                      if (innerIndex === array.length - 1) {
+                        incrementalIndex = currentIncrementIndex;
+                      }
+                      return (
+                        <button
+                          key={innerIndex}
+                          ref={(ref) =>
+                            (customizeTabRefs.current[
+                              currentIncrementIndex - 1
+                            ] = ref)
+                          }
+                          onClick={() => {
+                            changeCurrentCustomizations(item?.id, "case");
+                            changeCurrentCustomizations(
+                              element?.id,
+                              item?.changeId,
+                            );
+                          }}
+                          className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
+                          style={{
+                            transition:
+                              "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
+                          }}
+                        >
+                          <Image
+                            src={watchCaseImageUrl({
+                              currentSize,
+                              currentCase: item?.id,
+                              currentCaseVariant: element?.id,
+                            })}
+                            alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
+                            width={1000}
+                            height={1000}
+                            priority={true}
+                            className="ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:ms-calc--23vh-156px min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
+                          />
+                        </button>
+                      );
+                    })}
+                  </React.Fragment>
+                );
+              })}
+            </div>
           </div>
-
-          <div
-            ref={customizeTabContainer}
-            className="scrollbar-hide absolute top-0 z-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:px-[22.5vw]"
-          >
-            {customizeTabVariants?.variants?.map((item, index) => {
-              return (
-                <React.Fragment key={index}>
-                  {item?.variants?.map((element, innerIndex, array) => {
-                    const currentIncrementIndex =
-                      incrementalIndex + innerIndex + 1;
-                    if (innerIndex === array.length - 1) {
-                      incrementalIndex = currentIncrementIndex;
-                    }
-                    return (
-                      <button
-                        key={innerIndex}
-                        ref={(ref) =>
-                          (customizeTabRefs.current[currentIncrementIndex - 1] =
-                            ref)
-                        }
-                        onClick={() => {
-                          sideViewHandler();
-                          changeCurrentCustomizations(item?.id, "band");
-                          changeCurrentCustomizations(
-                            element?.id,
-                            item?.changeId,
-                          );
-                        }}
-                        className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
-                        style={{
-                          transition:
-                            "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
-                        }}
-                      >
-                        <Image
-                          src={watchBandImageUrl({
-                            currentSize,
-                            currentBand: item?.id,
-                            currentBandVariant: element?.id,
-                          })}
-                          alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
-                          width={1000}
-                          height={1000}
-                          loading="lazy"
-                          className="ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:ms-calc--23vh-156px min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
-                        />
-                      </button>
-                    );
-                  })}
-                </React.Fragment>
-              );
-            })}
+        )}
+        {customizeTabVariants?.id === "band" && (
+          <div>
+            <div className="mx-auto w-[312px] cursor-pointer overflow-hidden max-w-1023-max-w-736:w-[55vw]">
+              <Image
+                ref={customizeStaticContainerRef}
+                src={watchCaseImageUrl({
+                  currentSize,
+                  currentCase,
+                  currentCaseVariant,
+                })}
+                alt={`watch-case-${currentSize}-${currentCase}-${currentCaseVariant}`}
+                width={1000}
+                height={1000}
+                priority={true}
+                className="relative z-[5] ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:ms-calc--23vh-156px min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
+                style={{
+                  transition: "opacity 0.5s ease 0.2s",
+                }}
+              />
+            </div>
+            <div
+              ref={customizeTabContainer}
+              className="scrollbar-hide absolute top-0 z-0 flex w-screen snap-x snap-mandatory overflow-x-auto px-calc-50vw-156px transition-transform duration-[0.5s] ease-in-out max-w-1023-max-w-736:px-[22.5vw]"
+            >
+              {customizeTabVariants?.variants?.map((item, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    {item?.variants?.map((element, innerIndex, array) => {
+                      const currentIncrementIndex =
+                        incrementalIndex + innerIndex + 1;
+                      if (innerIndex === array.length - 1) {
+                        incrementalIndex = currentIncrementIndex;
+                      }
+                      return (
+                        <button
+                          key={innerIndex}
+                          ref={(ref) =>
+                            (customizeTabRefs.current[
+                              currentIncrementIndex - 1
+                            ] = ref)
+                          }
+                          onClick={() => {
+                            sideViewHandler();
+                            changeCurrentCustomizations(item?.id, "band");
+                            changeCurrentCustomizations(
+                              element?.id,
+                              item?.changeId,
+                            );
+                          }}
+                          className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
+                          style={{
+                            transition:
+                              "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
+                          }}
+                        >
+                          <Image
+                            src={watchBandImageUrl({
+                              currentSize,
+                              currentBand: item?.id,
+                              currentBandVariant: element?.id,
+                            })}
+                            alt={`watch-band-${currentSize}-${currentBand}-${currentBandVariant}`}
+                            width={1000}
+                            height={1000}
+                            loading="lazy"
+                            className="ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:ms-calc--23vh-156px min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
+                          />
+                        </button>
+                      );
+                    })}
+                  </React.Fragment>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 
