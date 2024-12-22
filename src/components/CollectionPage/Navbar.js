@@ -6,19 +6,34 @@ import {
 import Image from "next/image";
 import React, { useState } from "react";
 import CollectionDialogBox from "./CollectionDialogBox";
+import { useRouter } from "next/navigation";
 
 function Navbar({
   customizeWatchJson,
   currentCollection,
   changeCurrentCustomizations,
   customizeActive,
+  currentSize,
+  currentCase,
+  currentCaseVariant,
+  currentBand,
+  currentBandVariant,
 }) {
   const content = getComponentText("collectionPage.navbar");
   const [open, setOpen] = useState(false);
 
+  const router = useRouter();
+
   // Close collection dialog box
   function closeCollectionDialogBox() {
     setOpen(false);
+  }
+
+  // Redirection Url
+  function redirectionUrl() {
+    router.push(
+      `/apple-watch-buy?collection=${currentCollection}&size=${currentSize}&case=${currentCase}&caseVariant=${currentCaseVariant}&band=${currentBand}&bandVariant=${currentBandVariant}`,
+    );
   }
 
   return (
@@ -57,6 +72,7 @@ function Navbar({
           />
         </p>
         <button
+          onClick={redirectionUrl}
           className={`${customizeActive ? "block" : "hidden"} absolute right-[18px] top-[24px] animate-showAnimation1d8s rounded-full bg-primaryButtonColor px-[16px] py-[9px] text-[13.67px] leading-[18px] tracking-[-0.22px] text-white opacity-0 hover:bg-primaryButtonColor/[0.97] max-w-1023-max-w-736:top-[48px]`}
         >
           {content?.save?.para}
