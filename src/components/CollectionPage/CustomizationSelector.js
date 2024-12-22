@@ -4,7 +4,7 @@ import {
   watchCaseImageUrl,
 } from "@/utilities/commonFunction";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function CustomizationSelector({
   customizeTabVariants,
@@ -20,6 +20,14 @@ function CustomizationSelector({
   const customizeTabRefs = useRef([]);
   const customizeTabContainer = useRef();
   const customizeStaticContainerRef = useRef();
+  const [isSwiping, setIsSwiping] = useState(false);
+  const [isContainerSet, setIsContainerSet] = useState(false);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const startY = useRef(0);
+  const startTime = useRef(0); // Define startTime as a useRef
+  const threshold = 10; // Minimum distance to consider as dragging
+  const timeThreshold = 100; // Minimum time in ms to consider as dragging
 
   // Flatten the customizeTabVariants array
   const customizeTabVariantsArray = [];
@@ -58,8 +66,62 @@ function CustomizationSelector({
     });
   }
 
+  const handleCustomizationChange = () => {
+    const container = customizeTabContainer.current;
+    if (container) {
+      const children = container.children;
+      const viewportCenter = window.innerWidth / 2;
+      let closestElement = null;
+      let closestDistance = Infinity;
+      let closestIndex = -1;
+
+      for (let i = 0; i < children.length; i++) {
+        const child = children[i];
+        const rect = child.getBoundingClientRect();
+        const childCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(viewportCenter - childCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestElement = child;
+          closestIndex = i;
+        }
+      }
+
+      if (closestElement && closestIndex !== -1) {
+        // console.log("Middle element:", closestElement);
+
+        if (customizeTabVariants?.id === "size") {
+          changeCurrentCustomizations(
+            customizeTabVariantsArray[closestIndex]?.id,
+            "size",
+          );
+        } else if (customizeTabVariants?.id === "band") {
+          changeCurrentCustomizations(
+            customizeTabVariantsArray[closestIndex]?.parentVariantId,
+            "band",
+          );
+          changeCurrentCustomizations(
+            customizeTabVariantsArray[closestIndex]?.id,
+            "bandVariant",
+          );
+        } else if (customizeTabVariants?.id === "case") {
+          changeCurrentCustomizations(
+            customizeTabVariantsArray[closestIndex]?.parentVariantId,
+            "case",
+          );
+          changeCurrentCustomizations(
+            customizeTabVariantsArray[closestIndex]?.id,
+            "caseVariant",
+          );
+        }
+      }
+    }
+  };
+
   useEffect(() => {
     if (customizeTabContainer.current) {
+      setIsContainerSet(false);
       let currentCustomizationIndex = findCurrentCustomizationIndex();
       const currentCustomizationTransform =
         customizeTabRefs.current[currentCustomizationIndex]?.clientWidth;
@@ -68,6 +130,9 @@ function CustomizationSelector({
           left: currentCustomizationTransform * currentCustomizationIndex,
           behavior: "smooth",
         });
+        setTimeout(() => {
+          setIsContainerSet(true);
+        }, 700); // Delay of 0.7 seconds
       }
     }
   }, [
@@ -109,6 +174,52 @@ function CustomizationSelector({
     }
   }, [sideViewActive]);
 
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      isDragging.current = false;
+      startX.current = e.touches[0].clientX;
+      startY.current = e.touches[0].clientY;
+      startTime.current = Date.now();
+    };
+
+    const handleTouchMove = (e) => {
+      const deltaX = Math.abs(e.touches[0].clientX - startX.current);
+      const deltaY = Math.abs(e.touches[0].clientY - startY.current);
+      if (deltaX > threshold || deltaY > threshold) {
+        isDragging.current = true;
+        setIsSwiping(true);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      const touchDuration = Date.now() - startTime.current;
+      if (isDragging.current && touchDuration > timeThreshold) {
+        setIsSwiping(false);
+      }
+    };
+
+    const container = customizeTabContainer.current;
+    if (container) {
+      container.addEventListener("touchstart", handleTouchStart);
+      container.addEventListener("touchmove", handleTouchMove);
+      container.addEventListener("touchend", handleTouchEnd);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("touchstart", handleTouchStart);
+        container.removeEventListener("touchmove", handleTouchMove);
+        container.removeEventListener("touchend", handleTouchEnd);
+      }
+    };
+  }, [customizeTabVariants]);
+
+  useEffect(() => {
+    if (!isSwiping && isContainerSet) {
+      handleCustomizationChange();
+    }
+  }, [isSwiping]);
+
   return (
     <div className="select-none">
       {customizeTabVariants?.id === "size" && (
@@ -130,7 +241,7 @@ function CustomizationSelector({
                     "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
                 }}
               >
-                <div className="min-w-768-max-w-1024:ms-calc--23vh-156px relative ms-calc--26vh-156px max-w-1023-max-w-736:ms-[-15vw]">
+                <div className="relative ms-calc--26vh-156px min-w-768-max-w-1024:ms-calc--23vh-156px max-w-1023-max-w-736:ms-[-15vw]">
                   <Image
                     src={watchBandImageUrl({
                       currentSize: item?.id,
@@ -222,7 +333,7 @@ function CustomizationSelector({
                           width={1000}
                           height={1000}
                           priority={true}
-                          className="min-w-768-max-w-1024:ms-calc--23vh-156px ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
+                          className="ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:ms-calc--23vh-156px min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
                         />
                       </button>
                     );
@@ -247,7 +358,7 @@ function CustomizationSelector({
               width={1000}
               height={1000}
               priority={true}
-              className="min-w-768-max-w-1024:ms-calc--23vh-156px relative z-[5] ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
+              className="relative z-[5] ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:ms-calc--23vh-156px min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
               style={{
                 transition: "opacity 0.5s ease 0.2s",
               }}
@@ -298,7 +409,7 @@ function CustomizationSelector({
                           width={1000}
                           height={1000}
                           loading="lazy"
-                          className="min-w-768-max-w-1024:ms-calc--23vh-156px ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
+                          className="ms-calc--26vh-156px aspect-auto w-[52vh] max-w-[500px] min-w-768-max-w-1024:ms-calc--23vh-156px min-w-768-max-w-1024:w-[46vh] max-w-1023-max-w-736:ms-[-15vw] max-w-1023-max-w-736:w-[85vw]"
                         />
                       </button>
                     );
