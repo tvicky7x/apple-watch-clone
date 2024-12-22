@@ -175,25 +175,17 @@ function CustomizationSelector({
   }, [sideViewActive]);
 
   useEffect(() => {
-    const handleTouchStart = (e) => {
+    const handleTouchStart = () => {
       isDragging.current = false;
-      startX.current = e.touches[0].clientX;
-      startY.current = e.touches[0].clientY;
-      startTime.current = Date.now();
     };
 
-    const handleTouchMove = (e) => {
-      const deltaX = Math.abs(e.touches[0].clientX - startX.current);
-      const deltaY = Math.abs(e.touches[0].clientY - startY.current);
-      if (deltaX > threshold || deltaY > threshold) {
-        isDragging.current = true;
-        setIsSwiping(true);
-      }
+    const handleTouchMove = () => {
+      isDragging.current = true;
+      setIsSwiping(true);
     };
 
     const handleTouchEnd = () => {
-      const touchDuration = Date.now() - startTime.current;
-      if (isDragging.current && touchDuration > timeThreshold) {
+      if (isDragging.current) {
         setIsSwiping(false);
       }
     };
