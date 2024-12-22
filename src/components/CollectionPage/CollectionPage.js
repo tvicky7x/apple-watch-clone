@@ -93,7 +93,7 @@ function CollectionPage() {
   }, [currentCollection]);
 
   return (
-    <div className="relative h-screen min-h-[37rem] overflow-hidden">
+    <div className="relative h-screen min-h-[37rem] overflow-x-hidden">
       <Navbar
         customizeWatchJson={customizeWatchJson}
         changeCurrentCustomizations={changeCurrentCustomizations}
@@ -122,7 +122,7 @@ function CollectionPage() {
           currentBandVariant={currentBandVariant}
         />
 
-        <div className="absolute top-0 z-20 w-full max-w-1023-max-w-736:top-[40%] max-w-1023-max-w-736:-translate-y-[40%]">
+        <div className="absolute top-0 z-20 w-full max-w-1023-max-w-736:top-[55%] max-w-1023-max-w-736:-translate-y-[40%]">
           {customizeTabActive && (
             <CustomizationSelector
               customizeTabVariants={customizeTabVariants}
