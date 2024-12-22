@@ -23,11 +23,6 @@ function CustomizationSelector({
   const [isSwiping, setIsSwiping] = useState(false);
   const [isContainerSet, setIsContainerSet] = useState(false);
   const isDragging = useRef(false);
-  const startX = useRef(0);
-  const startY = useRef(0);
-  const startTime = useRef(0); // Define startTime as a useRef
-  const threshold = 10; // Minimum distance to consider as dragging
-  const timeThreshold = 100; // Minimum time in ms to consider as dragging
 
   // Flatten the customizeTabVariants array
   const customizeTabVariantsArray = [];
