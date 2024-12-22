@@ -47,7 +47,7 @@ function WatchDescriptionText({
             {watchCollection?.variantName}
           </p>
           <p className="text-[15px] font-medium leading-[20px] tracking-[-0.22px]">{`${watchSize?.variantName} ${watchCaseVariant?.variantName} ${watchCase?.variantName} with ${watchBandVariant?.variantName}`}</p>
-          <p className="text-[14px] leading-[20px] tracking-[-0.22px]">{`${content?.price?.para}492`}</p>
+          <p className="text-[14px] leading-[20px] tracking-[-0.22px]">{`${content?.price?.para}${Number(492).toFixed(2)}`}</p>
         </div>
       </div>
     </div>

@@ -147,13 +147,144 @@
     ]
   },
   {
-    "id": "appleWatchHermèsSeries10",
-    "variantName": "Apple Watch Hermès Series 10",
-    "variants": []
-  },
-  {
     "id": "appleWatchSE",
     "variantName": "Apple Watch SE",
-    "variants": []
+    "defaultCustomize": {
+      "currentSize": "44",
+      "currentCase": "aluminum",
+      "currentCaseVariant": "silver",
+      "currentBand": "soloLoop",
+      "currentBandVariant": "starFruit"
+    },
+    "variants": [
+      {
+        "id": "size",
+        "changeId": "size",
+        "variantName": "Size",
+        "variantImageUrl": "/size.svg",
+        "variants": [
+          {
+            "id": "40",
+            "variantName": "40mm",
+            "plainWatchView": true
+          },
+          {
+            "id": "44",
+            "variantName": "44mm",
+            "plainWatchView": true
+          }
+        ]
+      },
+      {
+        "id": "case",
+        "changeId": "case",
+        "variantName": "Case",
+        "variantImageUrl": "/case.svg",
+        "variants": [
+          {
+            "id": "aluminum",
+            "changeId": "caseVariant",
+            "variantName": "Aluminum Case",
+            "variants": [
+              { "id": "midnight", "variantName": "Midnight" },
+              { "id": "silver", "variantName": "Sliver" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "band",
+        "changeId": "band",
+        "variantName": "Band",
+        "variantImageUrl": "/band.svg",
+        "variants": [
+          {
+            "id": "stainlessSteel",
+            "changeId": "bandVariant",
+            "variantName": "Stainless Steel",
+            "variants": [
+              {
+                "id": "naturalMilaneseLoop",
+                "variantName": "Natural Milanese Loop"
+              },
+              { "id": "goldMilaneseLoop", "variantName": "Gold Milanese Loop" },
+              {
+                "id": "naturalLinkBracelet",
+                "variantName": "Natural Link Bracelet"
+              },
+              { "id": "goldLinkBracelet", "variantName": "Gold Link Bracelet" }
+            ]
+          },
+          {
+            "id": "sportLoop",
+            "changeId": "bandVariant",
+            "variantName": "Sport Loop",
+            "variants": [
+              { "id": "ultramarine", "variantName": "Ultramarine Sport Loop" },
+              { "id": "lakeGreen", "variantName": "Lake Green Sport Loop" },
+              { "id": "ink", "variantName": "Ink Sport Loop" }
+            ]
+          },
+          {
+            "id": "sportBand",
+            "changeId": "bandVariant",
+            "variantName": "Sport Band",
+            "variants": [
+              { "id": "denim", "variantName": "Denim Sport Band" },
+              { "id": "lakeGreen", "variantName": "Lake Green Sport Band" },
+              { "id": "black", "variantName": "Black Sport Band" }
+            ]
+          },
+          {
+            "id": "fineWoven",
+            "changeId": "bandVariant",
+            "variantName": "FineWoven",
+            "variants": [
+              {
+                "id": "darkTaupeMagneticLink",
+                "variantName": "Dark Taupe Magnetic Link"
+              },
+              {
+                "id": "blackberryMagneticLink",
+                "variantName": "Blackberry Magnetic Link"
+              },
+              {
+                "id": "blackMagneticLink",
+                "variantName": "Black Magnetic Link"
+              }
+            ]
+          },
+          {
+            "id": "braidedSoloLoop",
+            "changeId": "bandVariant",
+            "variantName": "Braided Solo Loop",
+            "variants": [
+              {
+                "id": "denimBraided",
+                "variantName": "Denim Braided Solo Loop"
+              },
+              {
+                "id": "lakeGreenBraided",
+                "variantName": "Green Braided Solo Loop"
+              },
+              {
+                "id": "midnightBraided",
+                "variantName": "Midnight Braided Solo Loop"
+              }
+            ]
+          },
+          {
+            "id": "soloLoop",
+            "changeId": "bandVariant",
+            "variantName": "Solo Loop",
+            "variants": [
+              { "id": "starFruit", "variantName": "Star Fruit Solo Loop" },
+              { "id": "ultramarine", "variantName": "Ultramarine Solo Loop" },
+              { "id": "black", "variantName": "Black Solo Loop" }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -90,6 +90,8 @@ function CollectionPage() {
     setCurrentBandVariant(
       currentCollectionItem?.defaultCustomize?.currentBandVariant,
     );
+    setCustomizeTabActive(false);
+    setCustomizeTabVariants({});
   }, [currentCollection]);
 
   return (
