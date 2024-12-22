@@ -15,7 +15,7 @@ function CustomizeTabs({
 }) {
   return (
     <div
-      className={`${customizeActive ? "block" : "hidden"} absolute bottom-[61px] w-full animate-showAnimation1d8s overflow-x-auto px-[18px] opacity-0 max-h-770:bottom-[20px]`}
+      className={`${customizeActive ? "block" : "hidden"} scrollbar-hide fixed bottom-[61px] w-full animate-showAnimation1d8s overflow-x-auto px-[18px] opacity-0 max-h-770:bottom-[20px]`}
     >
       <div className="mx-auto flex w-max justify-center gap-x-[12px]">
         {customizeWatchJson
