@@ -31,7 +31,7 @@ function WatchDescriptionText({
   });
   return (
     <div
-      className={`absolute left-1/2 z-30 w-screen -translate-x-1/2 animate-showAnimation1d8s pt-[1vh] text-center opacity-0 min-h-950:pt-[4vh]`}
+      className={`absolute left-1/2 z-30 w-screen -translate-x-1/2 animate-showAnimation1d8s pt-[2vh] text-center opacity-0 min-h-950:pt-[4vh] min-w-768-max-w-1024:pt-[1vh] max-w-1023-max-w-736:pt-[1vh]`}
     >
       <div className="inline-flex w-[60%] flex-col items-center gap-y-[12px] max-w-1023-max-w-736:w-[70%]">
         <span
@@ -47,7 +47,7 @@ function WatchDescriptionText({
             {watchCollection?.variantName}
           </p>
           <p className="text-[15px] font-medium leading-[20px] tracking-[-0.22px]">{`${watchSize?.variantName} ${watchCaseVariant?.variantName} ${watchCase?.variantName} with ${watchBandVariant?.variantName}`}</p>
-          <p className="text-[14px] leading-[20px] tracking-[-0.22px]">{`${content?.price?.para}${Number(492).toFixed(2)}`}</p>
+          <p className="text-[14px] leading-[20px] tracking-[-0.22px]">{`${content?.price?.para}${Number(watchSize?.price + watchCaseVariant?.price + watchBandVariant?.price).toFixed(2)}`}</p>
         </div>
       </div>
     </div>

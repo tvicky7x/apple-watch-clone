@@ -95,7 +95,7 @@ function CollectionPage() {
   }, [currentCollection]);
 
   return (
-    <div className="relative h-screen min-h-[37rem] overflow-x-hidden">
+    <div className="scrollbar-hide relative h-screen min-h-[37rem] w-screen overflow-x-hidden">
       <Navbar
         customizeWatchJson={customizeWatchJson}
         changeCurrentCustomizations={changeCurrentCustomizations}

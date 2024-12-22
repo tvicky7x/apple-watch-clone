@@ -19,12 +19,12 @@
           {
             "id": "42",
             "variantName": "42mm",
-            "plainWatchView": true
+            "price": 300
           },
           {
             "id": "46",
             "variantName": "46mm",
-            "plainWatchView": true
+            "price": 400
           }
         ]
       },
@@ -39,15 +39,15 @@
             "changeId": "caseVariant",
             "variantName": "Aluminum Case",
             "variants": [
-              { "id": "roseGold", "variantName": "Rose Gold" },
-              { "id": "jetBlack", "variantName": "Jet Black" }
+              { "id": "roseGold", "variantName": "Rose Gold", "price": 20 },
+              { "id": "jetBlack", "variantName": "Jet Black", "price": 20 }
             ]
           },
           {
             "id": "titanium",
             "changeId": "caseVariant",
             "variantName": "Titanium Case",
-            "variants": [{ "id": "gold", "variantName": "Gold" }]
+            "variants": [{ "id": "gold", "variantName": "Gold", "price": 320 }]
           }
         ]
       },
@@ -64,14 +64,24 @@
             "variants": [
               {
                 "id": "naturalMilaneseLoop",
-                "variantName": "Natural Milanese Loop"
+                "variantName": "Natural Milanese Loop",
+                "price": 49
               },
-              { "id": "goldMilaneseLoop", "variantName": "Gold Milanese Loop" },
+              {
+                "id": "goldMilaneseLoop",
+                "variantName": "Gold Milanese Loop",
+                "price": 49
+              },
               {
                 "id": "naturalLinkBracelet",
-                "variantName": "Natural Link Bracelet"
+                "variantName": "Natural Link Bracelet",
+                "price": 49
               },
-              { "id": "goldLinkBracelet", "variantName": "Gold Link Bracelet" }
+              {
+                "id": "goldLinkBracelet",
+                "variantName": "Gold Link Bracelet",
+                "price": 49
+              }
             ]
           },
           {
@@ -79,9 +89,17 @@
             "changeId": "bandVariant",
             "variantName": "Sport Loop",
             "variants": [
-              { "id": "ultramarine", "variantName": "Ultramarine Sport Loop" },
-              { "id": "lakeGreen", "variantName": "Lake Green Sport Loop" },
-              { "id": "ink", "variantName": "Ink Sport Loop" }
+              {
+                "id": "ultramarine",
+                "variantName": "Ultramarine Sport Loop",
+                "price": 39
+              },
+              {
+                "id": "lakeGreen",
+                "variantName": "Lake Green Sport Loop",
+                "price": 39
+              },
+              { "id": "ink", "variantName": "Ink Sport Loop", "price": 39 }
             ]
           },
           {
@@ -89,9 +107,13 @@
             "changeId": "bandVariant",
             "variantName": "Sport Band",
             "variants": [
-              { "id": "denim", "variantName": "Denim Sport Band" },
-              { "id": "lakeGreen", "variantName": "Lake Green Sport Band" },
-              { "id": "black", "variantName": "Black Sport Band" }
+              { "id": "denim", "variantName": "Denim Sport Band", "price": 39 },
+              {
+                "id": "lakeGreen",
+                "variantName": "Lake Green Sport Band",
+                "price": 39
+              },
+              { "id": "black", "variantName": "Black Sport Band", "price": 39 }
             ]
           },
           {
@@ -101,15 +123,18 @@
             "variants": [
               {
                 "id": "darkTaupeMagneticLink",
-                "variantName": "Dark Taupe Magnetic Link"
+                "variantName": "Dark Taupe Magnetic Link",
+                "price": 19
               },
               {
                 "id": "blackberryMagneticLink",
-                "variantName": "Blackberry Magnetic Link"
+                "variantName": "Blackberry Magnetic Link",
+                "price": 19
               },
               {
                 "id": "blackMagneticLink",
-                "variantName": "Black Magnetic Link"
+                "variantName": "Black Magnetic Link",
+                "price": 19
               }
             ]
           },
@@ -120,15 +145,18 @@
             "variants": [
               {
                 "id": "denimBraided",
-                "variantName": "Denim Braided Solo Loop"
+                "variantName": "Denim Braided Solo Loop",
+                "price": 19
               },
               {
                 "id": "lakeGreenBraided",
-                "variantName": "Green Braided Solo Loop"
+                "variantName": "Green Braided Solo Loop",
+                "price": 19
               },
               {
                 "id": "midnightBraided",
-                "variantName": "Midnight Braided Solo Loop"
+                "variantName": "Midnight Braided Solo Loop",
+                "price": 19
               }
             ]
           },
@@ -137,9 +165,17 @@
             "changeId": "bandVariant",
             "variantName": "Solo Loop",
             "variants": [
-              { "id": "starFruit", "variantName": "Star Fruit Solo Loop" },
-              { "id": "ultramarine", "variantName": "Ultramarine Solo Loop" },
-              { "id": "black", "variantName": "Black Solo Loop" }
+              {
+                "id": "starFruit",
+                "variantName": "Star Fruit Solo Loop",
+                "price": 29
+              },
+              {
+                "id": "ultramarine",
+                "variantName": "Ultramarine Solo Loop",
+                "price": 29
+              },
+              { "id": "black", "variantName": "Black Solo Loop", "price": 29 }
             ]
           }
         ]
@@ -166,12 +202,12 @@
           {
             "id": "40",
             "variantName": "40mm",
-            "plainWatchView": true
+            "price": 200
           },
           {
             "id": "44",
             "variantName": "44mm",
-            "plainWatchView": true
+            "price": 250
           }
         ]
       },
@@ -186,8 +222,8 @@
             "changeId": "caseVariant",
             "variantName": "Aluminum Case",
             "variants": [
-              { "id": "midnight", "variantName": "Midnight" },
-              { "id": "silver", "variantName": "Sliver" }
+              { "id": "midnight", "variantName": "Midnight", "price": 0 },
+              { "id": "silver", "variantName": "Sliver", "price": 0 }
             ]
           }
         ]
@@ -205,14 +241,24 @@
             "variants": [
               {
                 "id": "naturalMilaneseLoop",
-                "variantName": "Natural Milanese Loop"
+                "variantName": "Natural Milanese Loop",
+                "price": 49
               },
-              { "id": "goldMilaneseLoop", "variantName": "Gold Milanese Loop" },
+              {
+                "id": "goldMilaneseLoop",
+                "variantName": "Gold Milanese Loop",
+                "price": 49
+              },
               {
                 "id": "naturalLinkBracelet",
-                "variantName": "Natural Link Bracelet"
+                "variantName": "Natural Link Bracelet",
+                "price": 49
               },
-              { "id": "goldLinkBracelet", "variantName": "Gold Link Bracelet" }
+              {
+                "id": "goldLinkBracelet",
+                "variantName": "Gold Link Bracelet",
+                "price": 49
+              }
             ]
           },
           {
@@ -220,9 +266,17 @@
             "changeId": "bandVariant",
             "variantName": "Sport Loop",
             "variants": [
-              { "id": "ultramarine", "variantName": "Ultramarine Sport Loop" },
-              { "id": "lakeGreen", "variantName": "Lake Green Sport Loop" },
-              { "id": "ink", "variantName": "Ink Sport Loop" }
+              {
+                "id": "ultramarine",
+                "variantName": "Ultramarine Sport Loop",
+                "price": 39
+              },
+              {
+                "id": "lakeGreen",
+                "variantName": "Lake Green Sport Loop",
+                "price": 39
+              },
+              { "id": "ink", "variantName": "Ink Sport Loop", "price": 39 }
             ]
           },
           {
@@ -230,9 +284,13 @@
             "changeId": "bandVariant",
             "variantName": "Sport Band",
             "variants": [
-              { "id": "denim", "variantName": "Denim Sport Band" },
-              { "id": "lakeGreen", "variantName": "Lake Green Sport Band" },
-              { "id": "black", "variantName": "Black Sport Band" }
+              { "id": "denim", "variantName": "Denim Sport Band", "price": 39 },
+              {
+                "id": "lakeGreen",
+                "variantName": "Lake Green Sport Band",
+                "price": 39
+              },
+              { "id": "black", "variantName": "Black Sport Band", "price": 39 }
             ]
           },
           {
@@ -242,15 +300,18 @@
             "variants": [
               {
                 "id": "darkTaupeMagneticLink",
-                "variantName": "Dark Taupe Magnetic Link"
+                "variantName": "Dark Taupe Magnetic Link",
+                "price": 19
               },
               {
                 "id": "blackberryMagneticLink",
-                "variantName": "Blackberry Magnetic Link"
+                "variantName": "Blackberry Magnetic Link",
+                "price": 19
               },
               {
                 "id": "blackMagneticLink",
-                "variantName": "Black Magnetic Link"
+                "variantName": "Black Magnetic Link",
+                "price": 19
               }
             ]
           },
@@ -261,15 +322,18 @@
             "variants": [
               {
                 "id": "denimBraided",
-                "variantName": "Denim Braided Solo Loop"
+                "variantName": "Denim Braided Solo Loop",
+                "price": 19
               },
               {
                 "id": "lakeGreenBraided",
-                "variantName": "Green Braided Solo Loop"
+                "variantName": "Green Braided Solo Loop",
+                "price": 19
               },
               {
                 "id": "midnightBraided",
-                "variantName": "Midnight Braided Solo Loop"
+                "variantName": "Midnight Braided Solo Loop",
+                "price": 19
               }
             ]
           },
@@ -278,9 +342,17 @@
             "changeId": "bandVariant",
             "variantName": "Solo Loop",
             "variants": [
-              { "id": "starFruit", "variantName": "Star Fruit Solo Loop" },
-              { "id": "ultramarine", "variantName": "Ultramarine Solo Loop" },
-              { "id": "black", "variantName": "Black Solo Loop" }
+              {
+                "id": "starFruit",
+                "variantName": "Star Fruit Solo Loop",
+                "price": 29
+              },
+              {
+                "id": "ultramarine",
+                "variantName": "Ultramarine Solo Loop",
+                "price": 29
+              },
+              { "id": "black", "variantName": "Black Solo Loop", "price": 29 }
             ]
           }
         ]
