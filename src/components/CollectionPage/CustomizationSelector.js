@@ -255,7 +255,7 @@ function CustomizationSelector({
     if (!isSwiping && isContainerSet && !isScrolling) {
       handleCustomizationChange();
     }
-  }, [isSwiping, isScrolling]);
+  }, [isSwiping, isContainerSet, isScrolling]);
 
   return (
     <>
