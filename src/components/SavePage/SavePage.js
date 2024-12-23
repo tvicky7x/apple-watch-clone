@@ -53,7 +53,7 @@ function SavePage() {
       <div>
         <button
           onClick={backButtonHandler}
-          className={`absolute left-[18px] top-[24px] animate-showAnimation1d8s rounded-full bg-primaryButtonColor px-[16px] py-[9px] text-[13.67px] leading-[18px] tracking-[-0.22px] text-white opacity-0 hover:bg-primaryButtonColor/[0.97] max-w-1023-max-w-736:top-[48px]`}
+          className={`absolute left-[18px] top-[24px] rounded-full bg-primaryButtonColor px-[16px] py-[9px] text-[13.67px] leading-[18px] tracking-[-0.22px] text-white hover:bg-primaryButtonColor/[0.97] max-w-1023-max-w-736:top-[48px]`}
         >
           Back
         </button>
