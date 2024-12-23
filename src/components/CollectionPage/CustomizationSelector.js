@@ -23,7 +23,13 @@ function CustomizationSelector({
   const customizeStaticContainerRef = useRef();
   const [isSwiping, setIsSwiping] = useState(false);
   const [isContainerSet, setIsContainerSet] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
   const isDragging = useRef(false);
+  const startX = useRef(0);
+  const startY = useRef(0);
+  const startTime = useRef(0); // Define startTime as a useRef
+  const threshold = 10; // Minimum distance to consider as dragging
+  const timeThreshold = 100; // Minimum time in ms to consider as dragging
 
   // Flatten the customizeTabVariants array
   const customizeTabVariantsArray = [];
@@ -196,19 +202,35 @@ function CustomizationSelector({
   }, [sideViewActive]);
 
   useEffect(() => {
-    const handleTouchStart = () => {
+    const handleTouchStart = (e) => {
       isDragging.current = false;
+      startX.current = e.touches[0].clientX;
+      startY.current = e.touches[0].clientY;
+      startTime.current = Date.now();
     };
 
-    const handleTouchMove = () => {
-      isDragging.current = true;
-      setIsSwiping(true);
+    const handleTouchMove = (e) => {
+      const deltaX = Math.abs(e.touches[0].clientX - startX.current);
+      const deltaY = Math.abs(e.touches[0].clientY - startY.current);
+      if (deltaX > threshold || deltaY > threshold) {
+        isDragging.current = true;
+        setIsSwiping(true);
+      }
     };
 
     const handleTouchEnd = () => {
-      if (isDragging.current) {
+      const touchDuration = Date.now() - startTime.current;
+      if (isDragging.current && touchDuration > timeThreshold) {
         setIsSwiping(false);
       }
+    };
+
+    const handleScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(handleScroll.timeout);
+      handleScroll.timeout = setTimeout(() => {
+        setIsScrolling(false);
+      }, 100); // Delay to determine end of scrolling
     };
 
     const container = customizeTabContainer.current;
@@ -216,6 +238,7 @@ function CustomizationSelector({
       container.addEventListener("touchstart", handleTouchStart);
       container.addEventListener("touchmove", handleTouchMove);
       container.addEventListener("touchend", handleTouchEnd);
+      container.addEventListener("scroll", handleScroll);
     }
 
     return () => {
@@ -223,15 +246,16 @@ function CustomizationSelector({
         container.removeEventListener("touchstart", handleTouchStart);
         container.removeEventListener("touchmove", handleTouchMove);
         container.removeEventListener("touchend", handleTouchEnd);
+        container.removeEventListener("scroll", handleScroll);
       }
     };
   }, [customizeTabVariants]);
 
   useEffect(() => {
-    if (!isSwiping && isContainerSet) {
+    if (!isSwiping && isContainerSet && !isScrolling) {
       handleCustomizationChange();
     }
-  }, [isSwiping]);
+  }, [isSwiping, isScrolling]);
 
   return (
     <>
