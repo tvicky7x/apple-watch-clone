@@ -4,7 +4,9 @@ import React from "react";
 function page() {
   return (
     <>
-      <SavePage />
+      <React.Suspense>
+        <SavePage />
+      </React.Suspense>
     </>
   );
 }
