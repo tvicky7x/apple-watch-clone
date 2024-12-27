@@ -304,7 +304,7 @@ function CustomizationSelector({
                   onClick={() => {
                     changeCurrentCustomizations(item?.id, "size");
                   }}
-                  className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
+                  className="w-[312px] flex-shrink-0 cursor-pointer snap-center snap-always overflow-hidden max-w-1023-max-w-736:w-[55vw]"
                   style={{
                     transition:
                       "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
@@ -387,7 +387,7 @@ function CustomizationSelector({
                               item?.changeId,
                             );
                           }}
-                          className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
+                          className="w-[312px] flex-shrink-0 cursor-pointer snap-center snap-always overflow-hidden max-w-1023-max-w-736:w-[55vw]"
                           style={{
                             transition:
                               "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
@@ -463,7 +463,7 @@ function CustomizationSelector({
                               item?.changeId,
                             );
                           }}
-                          className="w-[312px] flex-shrink-0 cursor-pointer snap-center overflow-hidden max-w-1023-max-w-736:w-[55vw]"
+                          className="w-[312px] flex-shrink-0 cursor-pointer snap-center snap-always overflow-hidden max-w-1023-max-w-736:w-[55vw]"
                           style={{
                             transition:
                               "transform 0.25s ease 0.2s, opacity 0.5s ease 0.2s",
